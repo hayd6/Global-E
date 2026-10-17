@@ -1,8 +1,3 @@
-hypothesis_id,hypothesis_name,target_feature,group_variable,statistical_test,test_statistic,p_value,p_adjusted_bonferroni,effect_size_rank_biserial,conclusion
-NORM_total_cart_additions,Kiểm định chuẩn D'Agostino-Pearson: total_cart_additions,total_cart_additions,Toàn tập,D'Agostino-Pearson Normaltest,480.8628,3.8192e-105,3.8192e-105,,Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
-NORM_cart_to_page_ratio,Kiểm định chuẩn D'Agostino-Pearson: cart_to_page_ratio,cart_to_page_ratio,Toàn tập,D'Agostino-Pearson Normaltest,2194.8953,0.0,0.0,,Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
-NORM_cart_abandonment_severity,Kiểm định chuẩn D'Agostino-Pearson: cart_abandonment_severity,cart_abandonment_severity,Toàn tập,D'Agostino-Pearson Normaltest,305.1513,5.4605e-67,5.4605e-67,,Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
-NORM_days_since_last_session,Kiểm định chuẩn D'Agostino-Pearson: days_since_last_session,days_since_last_session,Toàn tập,D'Agostino-Pearson Normaltest,3201.6085,0.0,0.0,,Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
-H1,Rào cản ma sát vận chuyển (Cart Friction),pct_overnight_shipping,Từ bỏ giỏ (Target=0) vs Thành công (Target=1),Mann-Whitney U Test (One-sided Greater),1957170176.0,7.0411e-08,7.0411e-08,-0.0157,Bác bỏ H0: Nhóm từ bỏ giỏ hàng có tỷ lệ chịu cước Overnight cao hơn có ý nghĩa thống kê (p < 0.001)
-H2,Phân rã tương tác theo thời gian (Recency Decay),cart_velocity,"4 khoảng Recency (<=7d, 8-15d, 16-30d, >30d)",Kruskal-Wallis H-Test,1589.52,0.0,0.0,0.0099,Bác bỏ H0: Tốc độ thêm giỏ (cart_velocity) suy giảm đáng kể theo thời gian kể từ phiên cuối (p < 0.001)
-H3,Độ nhạy khuyến mãi theo hạng hội viên (Discount Elasticity),trans_discount_usage_rate,"4 phân hạng hội viên (Bronze, Silver, Gold, Platinum)",Kruskal-Wallis H-Test,1.43,0.69959,0.69959,-0.0,Chưa đủ bằng chứng bác bỏ H0
+version https://git-lfs.github.com/spec/v1
+oid sha256:b629df9cabdc49635865ca3909ec9ed8b9973865060e907532f3a9c5f5ff3cc7
+size 2119

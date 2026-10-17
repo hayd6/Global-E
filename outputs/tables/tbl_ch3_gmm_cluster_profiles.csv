@@ -1,6 +1,3 @@
-cluster_id,persona_name,customer_count,pct_population,mean_recency,mean_frequency,mean_monetary,mean_cart_additions,mean_abandonment_severity,conversion_rate
-1,High-Value Champions,13206,6.6,412.3,2.6,423.65,8.2,3.5,19.51
-2,Cart Hesitators / Shipping-Sensitive,50077,25.04,110.9,2.1,267.01,11.3,4.9,20.35
-3,Discount Seekers,57802,28.9,76.2,0.0,0.0,7.6,3.3,20.62
-4,Dormant At-Risk,39323,19.66,999.0,0.0,0.0,0.0,0.0,20.56
-5,Passive Browsers,39592,19.8,47.0,1.2,84.84,11.3,4.9,20.02
+version https://git-lfs.github.com/spec/v1
+oid sha256:94d82214f8e5d8d6fe2057a938b9b881ed720d578e2c85698f12971b01282575
+size 486

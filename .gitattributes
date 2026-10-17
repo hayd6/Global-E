@@ -1,2 +1,4 @@
 data/raw/sessions.csv filter=lfs diff=lfs merge=lfs -text
 outputs/models/propensity_checkpoint.pkl filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
+*.pkl filter=lfs diff=lfs merge=lfs -text

@@ -1,5 +1,3 @@
-uplift_segment,customer_count,pct_population,mean_uplift_score,treatment_conversion_rate,control_conversion_rate,net_incremental_orders,business_recommendation
-Persuadables,11200,35.0,0.146,24.0,33.07,18315004,Ưu tiên số 1: Can thiệp voucher và tiếp thị cá thể hóa cao
-Sure Things,1151,3.6,0.0383,31.86,31.34,50703,Cấm cấp voucher; bảo toàn 100% biên lợi nhuận tự nhiên
-Lost Causes,16764,52.39,0.0641,16.91,19.97,18000116,Loại bỏ khỏi chiến dịch; tránh lãng phí chi phí tiếp cận
-Sleeping Dogs,2885,9.02,-0.0618,19.3,23.66,-514594,Tuyệt đối không can thiệp; tránh phản cảm gây mất khách hàng
+version https://git-lfs.github.com/spec/v1
+oid sha256:60832afac0e6116a22a5083409e143eb6f33beafd6128445a5fbf307c491119c
+size 662

@@ -1,0 +1,18 @@
+# Dữ liệu nặng
+data/raw/
+data/processed/
+*.parquet
+*.csv
+
+# Ngoại trừ các bảng kết quả nhỏ cần giữ lại để xem
+!outputs/tables/*.csv
+!outputs/powerbi/*.csv
+
+# File mô hình nhị phân nặng
+outputs/models/*.pkl
+
+# Môi trường ảo & cache
+venv/
+__pycache__/
+.pytest_cache/
+*.log

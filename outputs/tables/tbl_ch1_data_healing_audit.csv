@@ -1,9 +1,3 @@
-table_name,raw_row_count,healed_row_count,anomalies_removed,timestamp_violations_fixed
-customers,200000,200000,10000,0
-sessions,2000000,1002701,104730,997299
-transactions,500000,238087,25059,249377
-marketing_campaigns,200,200,0,0
-geo_data,100,100,0,0
-train,160000,160000,0,0
-test,40000,40000,0,0
-sample_submission,40000,40000,0,0
+version https://git-lfs.github.com/spec/v1
+oid sha256:36752a8f4ffcf0c25a86421dc7e9b896683ec2e44500cb0d34ac996b18edb727
+size 339
