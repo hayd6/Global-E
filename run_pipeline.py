@@ -10,17 +10,6 @@ import sys
 import time
 import subprocess
 
-if sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
-if sys.stderr.encoding != 'utf-8':
-    try:
-        sys.stderr.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
-
 # Ensure project root is in sys.path
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 if PROJECT_ROOT not in sys.path:

@@ -16,3 +16,6 @@ venv/
 __pycache__/
 .pytest_cache/
 *.log
+node_modules/
+web/node_modules/
+web/.next/

@@ -39,7 +39,13 @@ global-ecommerce-decision-intelligence/
 │   ├── tables/                          # Toàn bộ bảng số liệu trích xuất tự động (.csv)
 │   ├── models/                          # File nhị phân lưu mô hình tốt nhất (.pkl)
 │   └── powerbi/                         # 4 file Star-Schema sạch phục vụ nạp Power BI
-├── app/                                 # Ứng dụng Web tương tác Streamlit kết nối mô hình thật
+├── api/                                 # FastAPI Backend (Port 8000) phục vụ suy luận mô hình & dữ liệu 6 phần
+│   └── main.py
+├── web/                                 # Next.js App Router (Port 3000) & Tailwind CSS
+│   ├── package.json
+│   ├── tailwind.config.js
+│   └── src/app/                         # Giao diện 6 phần tích hợp Executive Interactive Dashboard
+├── app/                                 # Ứng dụng Web tương tác Streamlit (nghiệm thu nội bộ)
 ├── docs/                                # Báo cáo nghiên cứu Word, Slide và kịch bản video
 ├── PRD.md                               # Bản đặc tả yêu cầu dự án
 ├── requirements.txt                     # Danh mục thư viện Python bắt buộc
@@ -68,17 +74,30 @@ python run_pipeline.py
 
 ---
 
-## 3. Khởi chạy Ứng dụng Web Ra Quyết định Streamlit
-Ứng dụng tương tác 3 tabs (`Customer Diagnostic`, `What-If Profit Simulator`, `Uplift Strategy Matrix`) kết nối trực tiếp mô hình hiệu chỉnh nhị phân:
+## 3. Khởi chạy Cổng thông tin Ra Quyết định (FastAPI + Next.js)
+
+Hệ thống cung cấp Cổng thông tin nghiên cứu luận văn 6 phần tích hợp **Executive Dashboard** tương tác thời gian thực:
+
+### Bước 3.1: Khởi chạy Backend FastAPI (Port 8000)
 ```bash
-streamlit run app/app.py
+uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
+*Tài liệu Swagger API: `http://localhost:8000/docs`*
+
+### Bước 3.2: Khởi chạy Frontend Next.js (Port 3000)
+```bash
+cd web
+npm install
+npm run dev
+```
+*Truy cập Portal tại: `http://localhost:3000`*
 
 ---
 
 ## 4. Danh mục sản phẩm bàn giao chính (Key Deliverables)
-1. **Báo cáo nghiên cứu khoa học chuyên sâu:** `docs/BaoCao_CuoiKy_ChiTiet.docx` (6 chương, chuẩn học thuật APA, bảng biểu và biểu đồ trích xuất tự động từ dữ liệu thực).
-2. **Kịch bản thuyết trình & Slide Deck:** `docs/SLIDE_OUTLINE.md` (18 slides chi tiết) và `docs/VIDEO_SCRIPT.md` (3-5 phút).
-3. **Mô hình triển khai sản xuất:** `outputs/models/best_calibrated_model.pkl` (Pipeline hoàn chỉnh kết hợp Imputer + Calibrated Classifier).
-4. **Bộ dữ liệu Power BI Star-Schema:** `outputs/powerbi/` (4 bảng quan hệ 1-N sẵn sàng import trực tiếp vào Power BI Desktop).
-5. **Hệ thống bảng số liệu và biểu đồ:** 18 bảng CSV tại `outputs/tables/` và 12 biểu đồ 300 DPI Tri-Color Palette tại `outputs/figures/`.
+1. **Cổng thông tin & Executive Dashboard:** Next.js 14 App Router + Tailwind CSS + FastAPI Backend (Chẩn đoán cá thể hóa & Mô phỏng lợi nhuận What-If thời gian thực).
+2. **Báo cáo nghiên cứu khoa học chuyên sâu:** `docs/BaoCao_CuoiKy_ChiTiet.docx` (6 chương, chuẩn học thuật APA, bảng biểu và biểu đồ trích xuất tự động từ dữ liệu thực).
+3. **Kịch bản thuyết trình & Slide Deck:** `docs/SLIDE_OUTLINE.md` (18 slides chi tiết) và `docs/VIDEO_SCRIPT.md` (3-5 phút).
+4. **Mô hình triển khai sản xuất:** `outputs/models/best_calibrated_model.pkl` (Pipeline hoàn chỉnh kết hợp Imputer + Calibrated Classifier).
+5. **Bộ dữ liệu Power BI Star-Schema:** `outputs/powerbi/` (4 bảng quan hệ 1-N sẵn sàng import trực tiếp vào Power BI Desktop).
+6. **Hệ thống bảng số liệu và biểu đồ:** 18 bảng CSV tại `outputs/tables/` và 12 biểu đồ 300 DPI Tri-Color Palette tại `outputs/figures/`.
