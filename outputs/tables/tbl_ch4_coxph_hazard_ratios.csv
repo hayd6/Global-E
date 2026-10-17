@@ -1,0 +1,7 @@
+covariate,coef,hazard_ratio,hr_lower_95,hr_upper_95,p_value,business_impact
+cart_to_page_ratio,0.2716,1.3121,1.166,1.4764,6.4423e-06,Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+cart_abandonment_severity,0.0498,1.051,1.0418,1.0603,2.1619e-28,Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+pct_overnight_shipping,-0.0685,0.9338,0.8678,1.0048,0.06684,Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+trans_discount_usage_rate,-0.0833,0.9201,0.8638,0.9801,0.0097666,Giảm nguy cơ từ bỏ giỏ hàng (Đòn bẩy thúc đẩy chuyển đổi)
+bounce_rate,0.0161,1.0162,0.9341,1.1056,0.70804,Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+loyalty_score,1.1035,3.0147,2.5992,3.4966,3.5552e-48,Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)

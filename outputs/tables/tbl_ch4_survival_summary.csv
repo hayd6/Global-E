@@ -1,0 +1,4 @@
+stratum_name,sample_size,events_observed,survival_prob_3d,survival_prob_7d,survival_prob_14d,survival_prob_30d,median_survival_days
+Shipping: Standard,87393,17882,0.9918,0.9841,0.9699,0.9384,60.0
+Shipping: Express,32579,6561,0.9911,0.9832,0.9701,0.9399,60.0
+Shipping: Overnight,40028,8043,0.9921,0.9839,0.9701,0.9375,60.0

@@ -1,0 +1,78 @@
+# configs/base_config.yaml
+
+project:
+  name: "Phân tích rào cản chuyển đổi giỏ hàng và tối ưu hóa lợi nhuận tiếp thị trong thương mại điện tử"
+  version: "1.0.0"
+  description: "Khung phân tích hành vi giỏ hàng, dự đoán chuyển đổi và tối ưu hóa quyết định kinh tế"
+
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  feature_store_path: "data/processed/customer_features_pit.parquet"
+  figures_dir: "outputs/figures"
+  tables_dir: "outputs/tables"
+  models_dir: "outputs/models"
+  powerbi_dir: "outputs/powerbi"
+  experiments_dir: "outputs/experiments"
+  docs_dir: "docs"
+
+raw_files:
+  customers: "customers.csv"
+  sessions: "sessions.csv"
+  transactions: "transactions.csv"
+  campaigns: "marketing_campaigns.csv"
+  geo_data: "geo_data.csv"
+  train: "train.csv"
+  test: "test.csv"
+  sample_submission: "sample_submission.csv"
+
+hardware:
+  cpu_architecture: "AMD Ryzen 5 3500U"
+  threads: 6
+  duckdb_max_memory: "10GB"
+  use_gpu: false
+  garbage_collection_active: true
+
+point_in_time:
+  cutoff_date: "2024-06-01"
+  prediction_window_days: 30
+  min_history_days: 60
+
+data_split:
+  random_state: 42
+  train_ratio: 0.80
+  holdout_ratio: 0.20
+  stratify_column: "target"
+  multi_seeds: [42, 100, 2024, 2026, 777]
+
+business_assumptions:
+  gross_margin_rate: 0.25
+  contact_cost_usd: 1.0
+  voucher_cost_usd: 5.0
+  default_threshold: 0.50
+  threshold_scan_step: 0.01
+
+optuna:
+  n_trials: 35
+  early_stopping_rounds: 7
+  cv_folds: 5
+  optimization_metric: "pr_auc"
+  direction: "maximize"
+
+segmentation:
+  k_range: [3, 8]
+  covariance_type: "full"
+  hdbscan_min_cluster_size: 500
+
+visual_standards:
+  dpi: 300
+  format: "png"
+  font_family: "sans-serif"
+  palette:
+    background: "#F8FAFC"
+    primary: "#0F172A"
+    accent_positive: "#0D9488"
+    accent_warning: "#E11D48"
+    grid: "#E2E8F0"
+  grid_alpha: 0.3
+  despine: true

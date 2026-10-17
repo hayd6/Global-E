@@ -1,0 +1,46 @@
+feature_1,feature_2,mean_absolute_interaction_value,behavioral_interpretation
+cart_to_page_ratio,loyalty_score,0.01169,Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và loyalty_score
+loyalty_score,total_spend,0.01083,Hiệu ứng phi tuyến tổng hợp giữa loyalty_score và total_spend
+cart_to_page_ratio,session_frequency_per_month,0.00664,Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và session_frequency_per_month
+cart_to_page_ratio,total_spend,0.00577,Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và total_spend
+days_since_last_session,loyalty_score,0.00503,Hiệu ứng phi tuyến tổng hợp giữa days_since_last_session và loyalty_score
+cart_to_page_ratio,days_since_last_session,0.00475,Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và days_since_last_session
+loyalty_score,session_frequency_per_month,0.00475,Hiệu ứng phi tuyến tổng hợp giữa loyalty_score và session_frequency_per_month
+hesitation_index,session_frequency_per_month,0.0042,Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và session_frequency_per_month
+hesitation_index,loyalty_score,0.00398,Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và loyalty_score
+hesitation_index,total_spend,0.00349,Thời gian cân nhắc kéo dài kết hợp giỏ hàng giá trị cao làm tăng rủi ro thoát trang
+loyalty_score,bounce_rate,0.00347,Hiệu ứng phi tuyến tổng hợp giữa loyalty_score và bounce_rate
+cart_to_page_ratio,hesitation_index,0.00338,Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và hesitation_index
+total_spend,session_frequency_per_month,0.00322,Hiệu ứng phi tuyến tổng hợp giữa total_spend và session_frequency_per_month
+days_since_last_session,session_frequency_per_month,0.0031,Hiệu ứng phi tuyến tổng hợp giữa days_since_last_session và session_frequency_per_month
+cart_to_page_ratio,cart_abandonment_severity,0.00296,Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và cart_abandonment_severity
+hesitation_index,days_since_last_session,0.00288,Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và days_since_last_session
+cart_abandonment_severity,loyalty_score,0.00274,Điểm trung thành làm giảm nhẹ tác động tiêu cực của rào cản giỏ hàng
+days_since_last_session,total_spend,0.00274,Hiệu ứng phi tuyến tổng hợp giữa days_since_last_session và total_spend
+cart_to_page_ratio,bounce_rate,0.00238,Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và bounce_rate
+total_spend,bounce_rate,0.00206,Hiệu ứng phi tuyến tổng hợp giữa total_spend và bounce_rate
+cart_abandonment_severity,total_spend,0.00197,Hiệu ứng phi tuyến tổng hợp giữa cart_abandonment_severity và total_spend
+cart_to_page_ratio,pct_overnight_shipping,0.00193,Tương tác rào cản kép: Cước vận chuyển cao kích hoạt hành vi từ bỏ giỏ hàng
+cart_abandonment_severity,session_frequency_per_month,0.00176,Hiệu ứng phi tuyến tổng hợp giữa cart_abandonment_severity và session_frequency_per_month
+cart_abandonment_severity,days_since_last_session,0.00174,Hiệu ứng phi tuyến tổng hợp giữa cart_abandonment_severity và days_since_last_session
+bounce_rate,session_frequency_per_month,0.00169,Hiệu ứng phi tuyến tổng hợp giữa bounce_rate và session_frequency_per_month
+pct_overnight_shipping,total_spend,0.0016,Hiệu ứng phi tuyến tổng hợp giữa pct_overnight_shipping và total_spend
+cart_abandonment_severity,hesitation_index,0.0016,Hiệu ứng phi tuyến tổng hợp giữa cart_abandonment_severity và hesitation_index
+cart_abandonment_severity,bounce_rate,0.00159,Hiệu ứng phi tuyến tổng hợp giữa cart_abandonment_severity và bounce_rate
+trans_discount_usage_rate,loyalty_score,0.00159,Hiệu ứng phi tuyến tổng hợp giữa trans_discount_usage_rate và loyalty_score
+hesitation_index,bounce_rate,0.0015,Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và bounce_rate
+days_since_last_session,bounce_rate,0.0015,Hiệu ứng phi tuyến tổng hợp giữa days_since_last_session và bounce_rate
+pct_overnight_shipping,loyalty_score,0.00132,Hiệu ứng phi tuyến tổng hợp giữa pct_overnight_shipping và loyalty_score
+cart_to_page_ratio,trans_discount_usage_rate,0.00118,Ý định mua hàng bị triệt tiêu nếu không có voucher trợ giá kích hoạt kịp thời
+trans_discount_usage_rate,session_frequency_per_month,0.00103,Hiệu ứng phi tuyến tổng hợp giữa trans_discount_usage_rate và session_frequency_per_month
+trans_discount_usage_rate,total_spend,0.00093,Hiệu ứng phi tuyến tổng hợp giữa trans_discount_usage_rate và total_spend
+pct_overnight_shipping,session_frequency_per_month,0.00081,Hiệu ứng phi tuyến tổng hợp giữa pct_overnight_shipping và session_frequency_per_month
+hesitation_index,trans_discount_usage_rate,0.00076,Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và trans_discount_usage_rate
+hesitation_index,pct_overnight_shipping,0.00068,Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và pct_overnight_shipping
+trans_discount_usage_rate,days_since_last_session,0.00067,Hiệu ứng phi tuyến tổng hợp giữa trans_discount_usage_rate và days_since_last_session
+trans_discount_usage_rate,bounce_rate,0.00062,Hiệu ứng phi tuyến tổng hợp giữa trans_discount_usage_rate và bounce_rate
+cart_abandonment_severity,trans_discount_usage_rate,0.00046,Ý định mua hàng bị triệt tiêu nếu không có voucher trợ giá kích hoạt kịp thời
+pct_overnight_shipping,bounce_rate,0.00043,Hiệu ứng phi tuyến tổng hợp giữa pct_overnight_shipping và bounce_rate
+pct_overnight_shipping,days_since_last_session,0.00041,Hiệu ứng phi tuyến tổng hợp giữa pct_overnight_shipping và days_since_last_session
+cart_abandonment_severity,pct_overnight_shipping,0.00022,Tương tác rào cản kép: Cước vận chuyển cao kích hoạt hành vi từ bỏ giỏ hàng
+pct_overnight_shipping,trans_discount_usage_rate,0.0002,Hiệu ứng phi tuyến tổng hợp giữa pct_overnight_shipping và trans_discount_usage_rate

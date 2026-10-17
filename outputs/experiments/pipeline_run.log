@@ -1,0 +1,672 @@
+[2026-10-17 12:15:26] ==================================================
+[2026-10-17 12:15:26] GLOBAL-E DATA SCIENCE PIPELINE - 1-CLICK EXECUTION
+[2026-10-17 12:15:40] ==================================================
+[2026-10-17 12:15:40] GLOBAL-E DATA SCIENCE PIPELINE - 1-CLICK EXECUTION
+[2026-10-17 12:15:40] Execution Root: D:\HuyD\Đại Học\BigData\Global-E
+[2026-10-17 12:15:40] ==================================================
+[2026-10-17 12:15:40] ==================================================
+[2026-10-17 12:15:40] STARTING: GIAI ĐOẠN 1.1: Data Healing
+[2026-10-17 12:15:40] COMMAND: python src/data_engineering/data_healing.py
+[2026-10-17 12:15:48] SUCCESS: GIAI ĐOẠN 1.1: Data Healing completed in 8.33s
+[2026-10-17 12:15:48]   [OUT]           customers         200000            200000              10000                           0
+[2026-10-17 12:15:48]   [OUT]            sessions        2000000           1002701             104730                      997299
+[2026-10-17 12:15:48]   [OUT]        transactions         500000            238087              25059                      249377
+[2026-10-17 12:15:48]   [OUT] marketing_campaigns            200               200                  0                           0
+[2026-10-17 12:15:48]   [OUT]            geo_data            100               100                  0                           0
+[2026-10-17 12:15:48]   [OUT]               train         160000            160000                  0                           0
+[2026-10-17 12:15:48]   [OUT]                test          40000             40000                  0                           0
+[2026-10-17 12:15:48]   [OUT]   sample_submission          40000             40000                  0                           0
+[2026-10-17 12:15:48] ==================================================
+[2026-10-17 12:15:48] STARTING: GIAI ĐOẠN 1.2: Build Features PIT
+[2026-10-17 12:15:48] COMMAND: python src/data_engineering/build_features_pit.py
+[2026-10-17 12:24:33] ==================================================
+[2026-10-17 12:24:33] GLOBAL-E DATA SCIENCE PIPELINE - 1-CLICK EXECUTION
+[2026-10-17 12:24:33] Execution Root: D:\HuyD\Đại Học\BigData\Global-E
+[2026-10-17 12:24:33] ==================================================
+[2026-10-17 12:24:33] ==================================================
+[2026-10-17 12:24:33] STARTING: GIAI ĐOẠN 1.1: Data Healing
+[2026-10-17 12:24:33] COMMAND: python src/data_engineering/data_healing.py
+[2026-10-17 12:24:40] SUCCESS: GIAI ĐOẠN 1.1: Data Healing completed in 7.65s
+[2026-10-17 12:24:40]   [OUT]           customers         200000            200000              10000                           0
+[2026-10-17 12:24:40]   [OUT]            sessions        2000000           1002701             104730                      997299
+[2026-10-17 12:24:40]   [OUT]        transactions         500000            238087              25059                      249377
+[2026-10-17 12:24:40]   [OUT] marketing_campaigns            200               200                  0                           0
+[2026-10-17 12:24:40]   [OUT]            geo_data            100               100                  0                           0
+[2026-10-17 12:24:40]   [OUT]               train         160000            160000                  0                           0
+[2026-10-17 12:24:40]   [OUT]                test          40000             40000                  0                           0
+[2026-10-17 12:24:40]   [OUT]   sample_submission          40000             40000                  0                           0
+[2026-10-17 12:24:40] ==================================================
+[2026-10-17 12:24:40] STARTING: GIAI ĐOẠN 1.2: Build Features PIT
+[2026-10-17 12:24:40] COMMAND: python src/data_engineering/build_features_pit.py
+[2026-10-17 12:24:46] SUCCESS: GIAI ĐOẠN 1.2: Build Features PIT completed in 5.47s
+[2026-10-17 12:24:46]   [OUT] Joining feature tables and engineering ratios...
+[2026-10-17 12:24:46]   [OUT] Total rows in PIT feature store: 200000
+[2026-10-17 12:24:46]   [OUT] Labeled rows (train): 160000 (Positives: 32486, Rate: 0.2030)
+[2026-10-17 12:24:46]   [OUT] Unlabeled rows (test): 40000
+[2026-10-17 12:24:46]   [OUT] Saving to data/processed/customer_features_pit.parquet...
+[2026-10-17 12:24:46]   [OUT] Saving sample to outputs/tables\customer_features_pit_sample.csv...
+[2026-10-17 12:24:46]   [OUT] Generating Feature Dictionary...
+[2026-10-17 12:24:46]   [OUT] Feature dictionary with 63 features saved to outputs/tables\tbl_ch3_feature_dictionary.csv.
+[2026-10-17 12:24:46] ==================================================
+[2026-10-17 12:24:46] STARTING: GIAI ĐOẠN 1.3: PIT Integrity Tests
+[2026-10-17 12:24:46] COMMAND: pytest tests/test_pit_integrity.py
+[2026-10-17 12:24:50] SUCCESS: GIAI ĐOẠN 1.3: PIT Integrity Tests completed in 4.50s
+[2026-10-17 12:24:50]   [OUT] platform win32 -- Python 3.14.6, pytest-9.1.1, pluggy-1.6.0
+[2026-10-17 12:24:50]   [OUT] rootdir: D:\\HuyD\\\u0110\u1ea1i H\u1ecdc\\BigData\\Global-E
+[2026-10-17 12:24:50]   [OUT] plugins: anyio-4.15.1
+[2026-10-17 12:24:50]   [OUT] collected 3 items
+[2026-10-17 12:24:50]   [OUT] 
+[2026-10-17 12:24:50]   [OUT] tests\test_pit_integrity.py ...                                          [100%]
+[2026-10-17 12:24:50]   [OUT] 
+[2026-10-17 12:24:50]   [OUT] ============================== 3 passed in 2.57s ==============================
+[2026-10-17 12:24:50] ==================================================
+[2026-10-17 12:24:50] STARTING: GIAI ĐOẠN 1.4: Plot PIT Audit Figures
+[2026-10-17 12:24:50] COMMAND: python src/data_engineering/plot_pit_audit.py
+[2026-10-17 12:25:01] SUCCESS: GIAI ĐOẠN 1.4: Plot PIT Audit Figures completed in 10.81s
+[2026-10-17 12:25:01]   [OUT] --- Plotting PIT Audit Figures ---
+[2026-10-17 12:25:01]   [OUT] Exported: outputs/figures\fig_ch3_01_target_distribution.png
+[2026-10-17 12:25:01]   [OUT] Exported: outputs/figures\fig_ch3_02_cart_engagement_scatter.png
+[2026-10-17 12:25:01] ==================================================
+[2026-10-17 12:25:01] STARTING: GIAI ĐOẠN 2.1: Behavioral Hypothesis Testing
+[2026-10-17 12:25:01] COMMAND: python src/analytics/behavioral_hypothesis_testing.py
+[2026-10-17 12:25:08] SUCCESS: GIAI ĐOẠN 2.1: Behavioral Hypothesis Testing completed in 6.75s
+[2026-10-17 12:25:08]   [OUT]                     hypothesis_id             target_feature                         statistical_test  test_statistic        p_value                                                                                               conclusion
+[2026-10-17 12:25:08]   [OUT] 0       NORM_total_cart_additions       total_cart_additions            D'Agostino-Pearson Normaltest    4.808628e+02  3.819200e-105                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:25:08]   [OUT] 1         NORM_cart_to_page_ratio         cart_to_page_ratio            D'Agostino-Pearson Normaltest    2.194895e+03   0.000000e+00                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:25:08]   [OUT] 2  NORM_cart_abandonment_severity  cart_abandonment_severity            D'Agostino-Pearson Normaltest    3.051513e+02   5.460500e-67                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:25:08]   [OUT] 3    NORM_days_since_last_session    days_since_last_session            D'Agostino-Pearson Normaltest    3.201608e+03   0.000000e+00                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:25:08]   [OUT] 4                              H1     pct_overnight_shipping  Mann-Whitney U Test (One-sided Greater)    1.957170e+09   7.041100e-08      Bác bỏ H0: Nhóm từ bỏ giỏ hàng có tỷ lệ chịu cước Overnight cao hơn có ý nghĩa thống kê (p < 0.001)
+[2026-10-17 12:25:08]   [OUT] 5                              H2              cart_velocity                    Kruskal-Wallis H-Test    1.589520e+03   0.000000e+00  Bác bỏ H0: Tốc độ thêm giỏ (cart_velocity) suy giảm đáng kể theo thời gian kể từ phiên cuối (p < 0.001)
+[2026-10-17 12:25:08]   [OUT] 6                              H3  trans_discount_usage_rate                    Kruskal-Wallis H-Test    1.430000e+00   6.995900e-01                                                                             Chưa đủ bằng chứng bác bỏ H0
+[2026-10-17 12:25:08] ==================================================
+[2026-10-17 12:25:08] STARTING: GIAI ĐOẠN 2.2: Customer Segmentation (GMM & HDBSCAN)
+[2026-10-17 12:25:08] COMMAND: python src/analytics/customer_segmentation.py
+[2026-10-17 12:29:04] SUCCESS: GIAI ĐOẠN 2.2: Customer Segmentation (GMM & HDBSCAN) completed in 236.56s
+[2026-10-17 12:29:04]   [OUT]  cluster_id                         persona_name  customer_count  pct_population  mean_recency  mean_frequency  mean_monetary  mean_cart_additions  mean_abandonment_severity  conversion_rate
+[2026-10-17 12:29:04]   [OUT]           1                 High-Value Champions           13206            6.60         412.3             2.6     423.649994                  8.2                        3.5            19.51
+[2026-10-17 12:29:04]   [OUT]           2 Cart Hesitators / Shipping-Sensitive           50077           25.04         110.9             2.1     267.010010                 11.3                        4.9            20.35
+[2026-10-17 12:29:04]   [OUT]           3                     Discount Seekers           57802           28.90          76.2             0.0       0.000000                  7.6                        3.3            20.62
+[2026-10-17 12:29:04]   [OUT]           4                      Dormant At-Risk           39323           19.66         999.0             0.0       0.000000                  0.0                        0.0            20.56
+[2026-10-17 12:29:04]   [OUT]           5                     Passive Browsers           39592           19.80          47.0             1.2      84.839996                 11.3                        4.9            20.02
+[2026-10-17 12:29:04]   [OUT] 
+[2026-10-17 12:29:04]   [OUT] Saved cluster assignments to data/processed\customer_cluster_assignments.parquet
+[2026-10-17 12:29:04] ==================================================
+[2026-10-17 12:29:04] STARTING: GIAI ĐOẠN 2.3: Plot Segmentation Figures
+[2026-10-17 12:29:04] COMMAND: python src/analytics/plot_segmentation.py
+[2026-10-17 12:29:16] SUCCESS: GIAI ĐOẠN 2.3: Plot Segmentation Figures completed in 11.53s
+[2026-10-17 12:29:16]   [OUT] --- Plotting Segmentation Figures ---
+[2026-10-17 12:29:16]   [OUT] Exported: outputs/figures\fig_ch3_03_gmm_cluster_radar.png
+[2026-10-17 12:29:16]   [OUT] Exported: outputs/figures\fig_ch3_04_cart_friction_by_cluster.png
+[2026-10-17 12:29:16]   [OUT] Exported: outputs/figures\fig_ch3_05_gmm_bic_aic_selection.png
+[2026-10-17 12:29:16] ==================================================
+[2026-10-17 12:29:16] STARTING: GIAI ĐOẠN 3.1: Train Propensity Models (Optuna HPO)
+[2026-10-17 12:29:16] COMMAND: python src/models/train_propensity_models.py
+[2026-10-17 12:33:37] SUCCESS: GIAI ĐOẠN 3.1: Train Propensity Models (Optuna HPO) completed in 261.00s
+[2026-10-17 12:33:37]   [OUT] XGBoost Best Trial: PR-AUC = 0.2702
+[2026-10-17 12:33:37]   [OUT] 
+[2026-10-17 12:33:37]   [OUT] Best hyperparameters saved to outputs/tables\tbl_ch4_optuna_best_hyperparameters.csv
+[2026-10-17 12:33:37]   [OUT] 
+[2026-10-17 12:33:37]   [OUT] --- 4. Building Stacking Ensemble ---
+[2026-10-17 12:33:37]   [OUT] Stacking Ensemble trained in 50.77s (Meta-weights: [[2.4508283 2.041538  1.2365564]])
+[2026-10-17 12:33:37]   [OUT] 
+[2026-10-17 12:33:37]   [OUT] Checkpoint successfully saved to outputs/models\propensity_checkpoint.pkl
+[2026-10-17 12:33:37] ==================================================
+[2026-10-17 12:33:37] STARTING: GIAI ĐOẠN 3.2: Calibrate & Evaluate Models
+[2026-10-17 12:33:37] COMMAND: python src/models/calibrate_and_evaluate.py
+[2026-10-17 12:33:55] SUCCESS: GIAI ĐOẠN 3.2: Calibrate & Evaluate Models completed in 17.85s
+[2026-10-17 12:33:55]   [OUT]                            LightGBM  0.2746   0.6126    0.3643     0.2551  0.6374    0.5485       0.2445 0.2940          2.37                0.0024
+[2026-10-17 12:33:55]   [OUT]                            CatBoost  0.2739   0.6082    0.3544     0.2572  0.5698    0.5786       0.2413 0.2882          5.49                0.0006
+[2026-10-17 12:33:55]   [OUT]      Calibrated LightGBM (Isotonic)  0.2735   0.6117    0.0000     0.0000  0.0000    0.7969       0.1578 0.0009          5.20                0.0080
+[2026-10-17 12:33:55]   [OUT]                       Random Forest  0.2703   0.6055    0.0000     0.0000  0.0000    0.7970       0.1585 0.0121         42.01                0.0071
+[2026-10-17 12:33:55]   [OUT]                 Logistic Regression  0.2663   0.5968    0.0006     0.5000  0.0003    0.7970       0.1587 0.0031          0.78                0.0002
+[2026-10-17 12:33:55]   [OUT] 
+[2026-10-17 12:33:55]   [OUT] Selected Best Calibrated Model: Calibrated LightGBM (Platt Sigmoid)
+[2026-10-17 12:33:55]   [OUT] Exported best calibrated model to outputs/models\best_calibrated_model.pkl
+[2026-10-17 12:33:55] ==================================================
+[2026-10-17 12:33:55] STARTING: GIAI ĐOẠN 3.3: Ablation Study & Stability
+[2026-10-17 12:33:55] COMMAND: python src/models/ablation_and_stability.py
+[2026-10-17 12:34:21] SUCCESS: GIAI ĐOẠN 3.3: Ablation Study & Stability completed in 26.22s
+[2026-10-17 12:34:21]   [OUT] Multi-Seed Stability results saved to outputs/tables\tbl_ch4_multiseed_stability.csv:
+[2026-10-17 12:34:21]   [OUT] random_seed          pr_auc         roc_auc     brier_score        f1_score
+[2026-10-17 12:34:21]   [OUT]          42          0.2746          0.6126          0.2445          0.3643
+[2026-10-17 12:34:21]   [OUT]         100           0.275          0.6121          0.2446          0.3621
+[2026-10-17 12:34:21]   [OUT]        2024          0.2738          0.6117          0.2446          0.3617
+[2026-10-17 12:34:21]   [OUT]        2026          0.2743          0.6123          0.2446          0.3624
+[2026-10-17 12:34:21]   [OUT]         777          0.2746           0.612          0.2446          0.3626
+[2026-10-17 12:34:21]   [OUT]  Mean ± Std 0.2745 ± 0.0004 0.6121 ± 0.0003 0.2446 ± 0.0000 0.3626 ± 0.0009
+[2026-10-17 12:34:21] ==================================================
+[2026-10-17 12:34:21] STARTING: GIAI ĐOẠN 3.4: Plot Model Evaluation Figures
+[2026-10-17 12:34:21] COMMAND: python src/models/plot_model_evaluation.py
+[2026-10-17 12:34:30] SUCCESS: GIAI ĐOẠN 3.4: Plot Model Evaluation Figures completed in 8.47s
+[2026-10-17 12:34:30]   [OUT] --- Plotting Model Evaluation Figures ---
+[2026-10-17 12:34:30]   [OUT] Exported: outputs/figures\fig_ch4_01_roc_pr_curves_comparison.png
+[2026-10-17 12:34:30]   [OUT] Exported: outputs/figures\fig_ch4_02_calibration_curves.png
+[2026-10-17 12:34:30]   [OUT] Exported: outputs/figures\fig_ch4_03_ablation_study_bar.png
+[2026-10-17 12:34:30] ==================================================
+[2026-10-17 12:34:30] STARTING: GIAI ĐOẠN 4.1: Survival Analysis (Kaplan-Meier & CoxPH)
+[2026-10-17 12:34:30] COMMAND: python src/analytics/survival_analysis.py
+[2026-10-17 12:34:36] SUCCESS: GIAI ĐOẠN 4.1: Survival Analysis (Kaplan-Meier & CoxPH) completed in 6.15s
+[2026-10-17 12:34:36]   [OUT] CoxPH Hazard Ratios saved to outputs/tables\tbl_ch4_coxph_hazard_ratios.csv:
+[2026-10-17 12:34:36]   [OUT]                 covariate  hazard_ratio  hr_lower_95  hr_upper_95      p_value                                           business_impact
+[2026-10-17 12:34:36]   [OUT]        cart_to_page_ratio        1.3121       1.1660       1.4764 6.442300e-06          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 12:34:36]   [OUT] cart_abandonment_severity        1.0510       1.0418       1.0603 2.161900e-28          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 12:34:36]   [OUT]    pct_overnight_shipping        0.9338       0.8678       1.0048 6.684000e-02    Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+[2026-10-17 12:34:36]   [OUT] trans_discount_usage_rate        0.9201       0.8638       0.9801 9.766600e-03 Giảm nguy cơ từ bỏ giỏ hàng (Đòn bẩy thúc đẩy chuyển đổi)
+[2026-10-17 12:34:36]   [OUT]               bounce_rate        1.0162       0.9341       1.1056 7.080400e-01    Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+[2026-10-17 12:34:36]   [OUT]             loyalty_score        3.0147       2.5992       3.4966 3.555200e-48          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 12:34:36] ==================================================
+[2026-10-17 12:34:36] STARTING: GIAI ĐOẠN 4.2: Uplift Modeling (T-Learner CATE)
+[2026-10-17 12:34:36] COMMAND: python src/models/uplift_modeling.py
+[2026-10-17 12:34:46] SUCCESS: GIAI ĐOẠN 4.2: Uplift Modeling (T-Learner CATE) completed in 10.74s
+[2026-10-17 12:34:46]   [OUT]    Sure Things            1178            3.68             0.0395                      31.57                    33.09
+[2026-10-17 12:34:46]   [OUT]    Lost Causes           16718           52.24             0.0639                      16.69                    19.85
+[2026-10-17 12:34:46]   [OUT]  Sleeping Dogs            2904            9.07            -0.0611                      19.29                    24.48
+[2026-10-17 12:34:46]   [OUT] 
+[2026-10-17 12:34:46]   [OUT] --- 4. Computing Qini Curve and Qini Score ---
+[2026-10-17 12:34:46]   [OUT] Qini Score (Area under Uplift vs Random): -26515.11
+[2026-10-17 12:34:46]   [OUT] Generating full population Uplift predictions for Power BI...
+[2026-10-17 12:34:46]   [OUT] Full population uplift predictions saved.
+[2026-10-17 12:34:46] ==================================================
+[2026-10-17 12:34:46] STARTING: GIAI ĐOẠN 4.3: TreeSHAP Interaction Values
+[2026-10-17 12:34:46] COMMAND: python src/explainability/shap_interaction.py
+[2026-10-17 12:35:10] SUCCESS: GIAI ĐOẠN 4.3: TreeSHAP Interaction Values completed in 23.58s
+[2026-10-17 12:35:10]   [OUT]      cart_to_page_ratio                 total_spend                          0.00577                  Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và total_spend
+[2026-10-17 12:35:10]   [OUT] days_since_last_session               loyalty_score                          0.00503           Hiệu ứng phi tuyến tổng hợp giữa days_since_last_session và loyalty_score
+[2026-10-17 12:35:10]   [OUT]      cart_to_page_ratio     days_since_last_session                          0.00475      Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và days_since_last_session
+[2026-10-17 12:35:10]   [OUT]           loyalty_score session_frequency_per_month                          0.00475       Hiệu ứng phi tuyến tổng hợp giữa loyalty_score và session_frequency_per_month
+[2026-10-17 12:35:10]   [OUT]        hesitation_index session_frequency_per_month                          0.00420    Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và session_frequency_per_month
+[2026-10-17 12:35:10]   [OUT]        hesitation_index               loyalty_score                          0.00398                  Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và loyalty_score
+[2026-10-17 12:35:10]   [OUT]        hesitation_index                 total_spend                          0.00349 Thời gian cân nhắc kéo dài kết hợp giỏ hàng giá trị cao làm tăng rủi ro thoát trang
+[2026-10-17 12:35:10]   [OUT] SHAP interaction matrix checkpoint saved.
+[2026-10-17 12:35:10] ==================================================
+[2026-10-17 12:35:10] STARTING: GIAI ĐOẠN 4.4: Expected Profit Optimization
+[2026-10-17 12:35:10] COMMAND: python src/business_value/profit_optimization.py
+[2026-10-17 12:35:15] SUCCESS: GIAI ĐOẠN 4.4: Expected Profit Optimization completed in 5.36s
+[2026-10-17 12:35:15]   [OUT]       3            3200               791              24.72       1.22                  41.27               27.93               14965.42                   50680.37
+[2026-10-17 12:35:15]   [OUT]       4            3200               732              22.88       1.13                  52.53               26.66               13547.45                   64227.83
+[2026-10-17 12:35:15]   [OUT]       5            3200               662              20.69       1.02                  62.72               25.47               11700.08                   75927.91
+[2026-10-17 12:35:15]   [OUT]       6            3200               629              19.66       0.97                  72.40               24.50               11180.61                   87108.52
+[2026-10-17 12:35:15]   [OUT]       7            3200               562              17.56       0.87                  81.05               23.51               10056.00                   97164.51
+[2026-10-17 12:35:15]   [OUT]       8            3200               494              15.44       0.76                  88.66               22.50                8232.24                  105396.75
+[2026-10-17 12:35:15]   [OUT]       9            3200               397              12.41       0.61                  94.77               21.38                5809.47                  111206.23
+[2026-10-17 12:35:15]   [OUT]      10            3200               340              10.62       0.52                 100.00               20.30                4710.83                  115917.05
+[2026-10-17 12:35:15] ==================================================
+[2026-10-17 12:35:15] STARTING: GIAI ĐOẠN 4.5: Plot Business Insights Figures
+[2026-10-17 12:35:15] COMMAND: python src/business_value/plot_business_insights.py
+[2026-10-17 12:35:25] SUCCESS: GIAI ĐOẠN 4.5: Plot Business Insights Figures completed in 9.23s
+[2026-10-17 12:35:25]   [OUT] --- Plotting Business Insights and Optimization Figures ---
+[2026-10-17 12:35:25]   [OUT] Exported: outputs/figures\fig_ch4_04_survival_cart_decay.png
+[2026-10-17 12:35:25]   [OUT] Exported: outputs/figures\fig_ch4_05_uplift_qini_curve.png
+[2026-10-17 12:35:25]   [OUT] Exported: outputs/figures\fig_ch4_06_shap_interaction_matrix.png
+[2026-10-17 12:35:25]   [OUT] Exported: outputs/figures\fig_ch5_01_expected_profit_optimization.png
+[2026-10-17 12:35:25] ==================================================
+[2026-10-17 12:35:25] STARTING: GIAI ĐOẠN 5.1: Export Power BI Star Schema
+[2026-10-17 12:35:25] COMMAND: python src/data_engineering/export_powerbi_star_schema.py
+[2026-10-17 12:35:35] SUCCESS: GIAI ĐOẠN 5.1: Export Power BI Star Schema completed in 10.17s
+[2026-10-17 12:35:35]   [OUT] --- 3. Exporting Dimension Table: dim_customers.csv ---
+[2026-10-17 12:35:35]   [OUT] Dimension customers saved to outputs/powerbi\dim_customers.csv (200,000 rows)
+[2026-10-17 12:35:35]   [OUT] 
+[2026-10-17 12:35:35]   [OUT] --- 4. Exporting Dimension Table: dim_cart_behavior.csv ---
+[2026-10-17 12:35:35]   [OUT] Dimension cart behavior saved to outputs/powerbi\dim_cart_behavior.csv (200,000 rows)
+[2026-10-17 12:35:35]   [OUT] 
+[2026-10-17 12:35:35]   [OUT] --- 5. Exporting Simulation Table: dim_threshold_simulation.csv ---
+[2026-10-17 12:35:35]   [OUT] Simulation dimension saved to outputs/powerbi\dim_threshold_simulation.csv (99 rows)
+[2026-10-17 12:35:35] ==================================================
+[2026-10-17 12:35:35] STARTING: GIAI ĐOẠN 5.2: Business Recommendations Matrix
+[2026-10-17 12:35:35] COMMAND: python src/business_value/generate_business_recommendations.py
+[2026-10-17 12:35:36] SUCCESS: GIAI ĐOẠN 5.2: Business Recommendations Matrix completed in 1.60s
+[2026-10-17 12:35:36]   [OUT] --- Generating Quantitative Business Action Matrix ---
+[2026-10-17 12:35:36]   [OUT] Business Action Matrix successfully exported to outputs/tables\tbl_ch5_business_action_matrix.csv:
+[2026-10-17 12:35:36]   [OUT] strategy_id                                                                strategy_name                                                               target_segment                                      optimal_threshold                                                                                               target_kpi
+[2026-10-17 12:35:36]   [OUT]      ACT-01           Giải tỏa rào cản cước vận chuyển (Dynamic Free Shipping Threshold)                  Cụm 2: Cart Hesitators / Shipping-Sensitive (25.04% dân số)                    Giá trị giỏ hàng >= $68.0 (80% AOV)                    Giảm 20% tỷ lệ Cart Abandonment Severity; tăng 15% tỷ lệ hoàn tất thanh toán giỏ hàng
+[2026-10-17 12:35:36]   [OUT]      ACT-02 Can thiệp ưu đãi cá thể hóa theo Uplift CATE (Targeted Incentive Allocation)                                   Duy nhất nhóm Persuadables (35.00% dân số)           Điểm số tác động gia tăng Uplift Tau >= 0.10 Tăng 25% tỷ lệ chuyển đổi thuần (Net Uplift Conversion); tiết kiệm $15,000 ngân sách voucher bị lãng phí
+[2026-10-17 12:35:36]   [OUT]      ACT-03   Kích hoạt tự động theo thời điểm vàng sống còn (Golden Window Retargeting) Khách hàng có phiên thêm giỏ nhưng chưa hoàn tất giao dịch trong vòng 7 ngày      Thời gian trôi qua: 3h <= t <= 24h (t* <= 7 ngày)                        Đạt tỷ lệ mở thông báo >= 35%; tỷ lệ phục hồi giỏ hàng hoàn tất thanh toán >= 12%
+[2026-10-17 12:35:36]   [OUT]      ACT-04        Tối ưu hóa phân bổ ngân sách theo phân vị Decile Lift@K & Ngưỡng tau*    Decile 1 và Decile 2 (Top 20% khách hàng có xác suất chuyển đổi cao nhất) Ngưỡng quyết định tối ưu tau* = 0.01 (hoặc Decile 1-2)      Tối đa hóa lợi nhuận ròng đạt $115,917 trên tập Holdout; giảm 60% chi phí tiếp cận khách hàng (CAC)
+[2026-10-17 12:35:36] ==================================================
+[2026-10-17 12:35:36] STARTING: GIAI ĐOẠN 5.3: Generate Deliverables (Word Report, Slides, Video)
+[2026-10-17 12:35:36] COMMAND: python src/utils/generate_deliverables.py
+[2026-10-17 12:35:41] FAILED: GIAI ĐOẠN 5.3: Generate Deliverables (Word Report, Slides, Video) failed with return code 1
+[2026-10-17 12:35:41]   [ERR]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-17 12:35:41]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\site-packages\docx\opc\pkgwriter.py", line 34, in write
+[2026-10-17 12:35:41]   [ERR]     phys_writer = PhysPkgWriter(pkg_file)
+[2026-10-17 12:35:41]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\site-packages\docx\opc\phys_pkg.py", line 109, in __init__
+[2026-10-17 12:35:41]   [ERR]     self._zipf = ZipFile(pkg_file, "w", compression=ZIP_DEFLATED)
+[2026-10-17 12:35:41]   [ERR]                  ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-17 12:35:41]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\zipfile\__init__.py", line 1462, in __init__
+[2026-10-17 12:35:41]   [ERR]     self.fp = io.open(file, filemode)
+[2026-10-17 12:35:41]   [ERR]               ~~~~~~~^^^^^^^^^^^^^^^^
+[2026-10-17 12:35:41]   [ERR] PermissionError: [Errno 13] Permission denied: 'docs\\BaoCao_CuoiKy_ChiTiet.docx'
+[2026-10-17 12:35:41] ==================================================
+[2026-10-17 12:35:41] GLOBAL-E DATA SCIENCE PIPELINE - 1-CLICK EXECUTION
+[2026-10-17 12:35:41] Execution Root: D:\HuyD\Đại Học\BigData\Global-E
+[2026-10-17 12:35:41] ==================================================
+[2026-10-17 12:35:41] ==================================================
+[2026-10-17 12:35:41] STARTING: GIAI ĐOẠN 1.1: Data Healing
+[2026-10-17 12:35:41] COMMAND: python src/data_engineering/data_healing.py
+[2026-10-17 12:35:48] SUCCESS: GIAI ĐOẠN 1.1: Data Healing completed in 6.85s
+[2026-10-17 12:35:48]   [OUT]           customers         200000            200000              10000                           0
+[2026-10-17 12:35:48]   [OUT]            sessions        2000000           1002701             104730                      997299
+[2026-10-17 12:35:48]   [OUT]        transactions         500000            238087              25059                      249377
+[2026-10-17 12:35:48]   [OUT] marketing_campaigns            200               200                  0                           0
+[2026-10-17 12:35:48]   [OUT]            geo_data            100               100                  0                           0
+[2026-10-17 12:35:48]   [OUT]               train         160000            160000                  0                           0
+[2026-10-17 12:35:48]   [OUT]                test          40000             40000                  0                           0
+[2026-10-17 12:35:48]   [OUT]   sample_submission          40000             40000                  0                           0
+[2026-10-17 12:35:48] ==================================================
+[2026-10-17 12:35:48] STARTING: GIAI ĐOẠN 1.2: Build Features PIT
+[2026-10-17 12:35:48] COMMAND: python src/data_engineering/build_features_pit.py
+[2026-10-17 12:35:52] SUCCESS: GIAI ĐOẠN 1.2: Build Features PIT completed in 4.56s
+[2026-10-17 12:35:52]   [OUT] Joining feature tables and engineering ratios...
+[2026-10-17 12:35:52]   [OUT] Total rows in PIT feature store: 200000
+[2026-10-17 12:35:52]   [OUT] Labeled rows (train): 160000 (Positives: 32486, Rate: 0.2030)
+[2026-10-17 12:35:52]   [OUT] Unlabeled rows (test): 40000
+[2026-10-17 12:35:52]   [OUT] Saving to data/processed/customer_features_pit.parquet...
+[2026-10-17 12:35:52]   [OUT] Saving sample to outputs/tables\customer_features_pit_sample.csv...
+[2026-10-17 12:35:52]   [OUT] Generating Feature Dictionary...
+[2026-10-17 12:35:52]   [OUT] Feature dictionary with 63 features saved to outputs/tables\tbl_ch3_feature_dictionary.csv.
+[2026-10-17 12:35:52] ==================================================
+[2026-10-17 12:35:52] STARTING: GIAI ĐOẠN 1.3: PIT Integrity Tests
+[2026-10-17 12:35:52] COMMAND: pytest tests/test_pit_integrity.py
+[2026-10-17 12:35:56] SUCCESS: GIAI ĐOẠN 1.3: PIT Integrity Tests completed in 3.41s
+[2026-10-17 12:35:56]   [OUT] platform win32 -- Python 3.14.6, pytest-9.1.1, pluggy-1.6.0
+[2026-10-17 12:35:56]   [OUT] rootdir: D:\\HuyD\\\u0110\u1ea1i H\u1ecdc\\BigData\\Global-E
+[2026-10-17 12:35:56]   [OUT] plugins: anyio-4.15.1
+[2026-10-17 12:35:56]   [OUT] collected 3 items
+[2026-10-17 12:35:56]   [OUT] 
+[2026-10-17 12:35:56]   [OUT] tests\test_pit_integrity.py ...                                          [100%]
+[2026-10-17 12:35:56]   [OUT] 
+[2026-10-17 12:35:56]   [OUT] ============================== 3 passed in 1.59s ==============================
+[2026-10-17 12:35:56] ==================================================
+[2026-10-17 12:35:56] STARTING: GIAI ĐOẠN 1.4: Plot PIT Audit Figures
+[2026-10-17 12:35:56] COMMAND: python src/data_engineering/plot_pit_audit.py
+[2026-10-17 12:36:02] SUCCESS: GIAI ĐOẠN 1.4: Plot PIT Audit Figures completed in 6.50s
+[2026-10-17 12:36:02]   [OUT] --- Plotting PIT Audit Figures ---
+[2026-10-17 12:36:02]   [OUT] Exported: outputs/figures\fig_ch3_01_target_distribution.png
+[2026-10-17 12:36:02]   [OUT] Exported: outputs/figures\fig_ch3_02_cart_engagement_scatter.png
+[2026-10-17 12:36:02] ==================================================
+[2026-10-17 12:36:02] STARTING: GIAI ĐOẠN 2.1: Behavioral Hypothesis Testing
+[2026-10-17 12:36:02] COMMAND: python src/analytics/behavioral_hypothesis_testing.py
+[2026-10-17 12:36:06] SUCCESS: GIAI ĐOẠN 2.1: Behavioral Hypothesis Testing completed in 3.60s
+[2026-10-17 12:36:06]   [OUT]                     hypothesis_id             target_feature                         statistical_test  test_statistic        p_value                                                                                               conclusion
+[2026-10-17 12:36:06]   [OUT] 0       NORM_total_cart_additions       total_cart_additions            D'Agostino-Pearson Normaltest    4.808628e+02  3.819200e-105                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:36:06]   [OUT] 1         NORM_cart_to_page_ratio         cart_to_page_ratio            D'Agostino-Pearson Normaltest    2.194895e+03   0.000000e+00                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:36:06]   [OUT] 2  NORM_cart_abandonment_severity  cart_abandonment_severity            D'Agostino-Pearson Normaltest    3.051513e+02   5.460500e-67                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:36:06]   [OUT] 3    NORM_days_since_last_session    days_since_last_session            D'Agostino-Pearson Normaltest    3.201608e+03   0.000000e+00                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:36:06]   [OUT] 4                              H1     pct_overnight_shipping  Mann-Whitney U Test (One-sided Greater)    1.957170e+09   7.041100e-08      Bác bỏ H0: Nhóm từ bỏ giỏ hàng có tỷ lệ chịu cước Overnight cao hơn có ý nghĩa thống kê (p < 0.001)
+[2026-10-17 12:36:06]   [OUT] 5                              H2              cart_velocity                    Kruskal-Wallis H-Test    1.589520e+03   0.000000e+00  Bác bỏ H0: Tốc độ thêm giỏ (cart_velocity) suy giảm đáng kể theo thời gian kể từ phiên cuối (p < 0.001)
+[2026-10-17 12:36:06]   [OUT] 6                              H3  trans_discount_usage_rate                    Kruskal-Wallis H-Test    1.430000e+00   6.995900e-01                                                                             Chưa đủ bằng chứng bác bỏ H0
+[2026-10-17 12:36:06] ==================================================
+[2026-10-17 12:36:06] STARTING: GIAI ĐOẠN 2.2: Customer Segmentation (GMM & HDBSCAN)
+[2026-10-17 12:36:06] COMMAND: python src/analytics/customer_segmentation.py
+[2026-10-17 12:39:04] SUCCESS: GIAI ĐOẠN 2.2: Customer Segmentation (GMM & HDBSCAN) completed in 177.73s
+[2026-10-17 12:39:04]   [OUT]  cluster_id                         persona_name  customer_count  pct_population  mean_recency  mean_frequency  mean_monetary  mean_cart_additions  mean_abandonment_severity  conversion_rate
+[2026-10-17 12:39:04]   [OUT]           1                 High-Value Champions           13206            6.60         412.3             2.6     423.649994                  8.2                        3.5            19.51
+[2026-10-17 12:39:04]   [OUT]           2 Cart Hesitators / Shipping-Sensitive           50077           25.04         110.9             2.1     267.010010                 11.3                        4.9            20.35
+[2026-10-17 12:39:04]   [OUT]           3                     Discount Seekers           57802           28.90          76.2             0.0       0.000000                  7.6                        3.3            20.62
+[2026-10-17 12:39:04]   [OUT]           4                      Dormant At-Risk           39323           19.66         999.0             0.0       0.000000                  0.0                        0.0            20.56
+[2026-10-17 12:39:04]   [OUT]           5                     Passive Browsers           39592           19.80          47.0             1.2      84.839996                 11.3                        4.9            20.02
+[2026-10-17 12:39:04]   [OUT] 
+[2026-10-17 12:39:04]   [OUT] Saved cluster assignments to data/processed\customer_cluster_assignments.parquet
+[2026-10-17 12:39:04] ==================================================
+[2026-10-17 12:39:04] STARTING: GIAI ĐOẠN 2.3: Plot Segmentation Figures
+[2026-10-17 12:39:04] COMMAND: python src/analytics/plot_segmentation.py
+[2026-10-17 12:39:11] SUCCESS: GIAI ĐOẠN 2.3: Plot Segmentation Figures completed in 7.11s
+[2026-10-17 12:39:11]   [OUT] --- Plotting Segmentation Figures ---
+[2026-10-17 12:39:11]   [OUT] Exported: outputs/figures\fig_ch3_03_gmm_cluster_radar.png
+[2026-10-17 12:39:11]   [OUT] Exported: outputs/figures\fig_ch3_04_cart_friction_by_cluster.png
+[2026-10-17 12:39:11]   [OUT] Exported: outputs/figures\fig_ch3_05_gmm_bic_aic_selection.png
+[2026-10-17 12:39:11] ==================================================
+[2026-10-17 12:39:11] STARTING: GIAI ĐOẠN 3.1: Train Propensity Models (Optuna HPO)
+[2026-10-17 12:39:11] COMMAND: python src/models/train_propensity_models.py
+[2026-10-17 12:43:17] SUCCESS: GIAI ĐOẠN 3.1: Train Propensity Models (Optuna HPO) completed in 246.06s
+[2026-10-17 12:43:17]   [OUT] XGBoost Best Trial: PR-AUC = 0.2705
+[2026-10-17 12:43:17]   [OUT] 
+[2026-10-17 12:43:17]   [OUT] Best hyperparameters saved to outputs/tables\tbl_ch4_optuna_best_hyperparameters.csv
+[2026-10-17 12:43:17]   [OUT] 
+[2026-10-17 12:43:17]   [OUT] --- 4. Building Stacking Ensemble ---
+[2026-10-17 12:43:17]   [OUT] Stacking Ensemble trained in 47.77s (Meta-weights: [[2.6169698 1.7256048 1.0725306]])
+[2026-10-17 12:43:17]   [OUT] 
+[2026-10-17 12:43:17]   [OUT] Checkpoint successfully saved to outputs/models\propensity_checkpoint.pkl
+[2026-10-17 12:43:17] ==================================================
+[2026-10-17 12:43:17] STARTING: GIAI ĐOẠN 3.2: Calibrate & Evaluate Models
+[2026-10-17 12:43:17] COMMAND: python src/models/calibrate_and_evaluate.py
+[2026-10-17 12:43:34] SUCCESS: GIAI ĐOẠN 3.2: Calibrate & Evaluate Models completed in 17.02s
+[2026-10-17 12:43:34]   [OUT]                            LightGBM  0.2748   0.6132    0.3174     0.2917  0.3480    0.6960       0.2114 0.2306          2.35                0.0025
+[2026-10-17 12:43:34]   [OUT]                   Stacking Ensemble  0.2746   0.6114    0.0000     0.0000  0.0000    0.7970       0.1578 0.0022         47.77                0.0109
+[2026-10-17 12:43:34]   [OUT]                            CatBoost  0.2728   0.6063    0.3535     0.2559  0.5713    0.5757       0.2414 0.2881          6.55                0.0006
+[2026-10-17 12:43:34]   [OUT]                       Random Forest  0.2689   0.6048    0.0000     0.0000  0.0000    0.7970       0.1585 0.0128         43.58                0.0067
+[2026-10-17 12:43:34]   [OUT]                 Logistic Regression  0.2667   0.5967    0.0003     0.5000  0.0002    0.7970       0.1587 0.0037          0.63                0.0002
+[2026-10-17 12:43:34]   [OUT] 
+[2026-10-17 12:43:34]   [OUT] Selected Best Calibrated Model: Calibrated LightGBM (Platt Sigmoid)
+[2026-10-17 12:43:34]   [OUT] Exported best calibrated model to outputs/models\best_calibrated_model.pkl
+[2026-10-17 12:43:34] ==================================================
+[2026-10-17 12:43:34] STARTING: GIAI ĐOẠN 3.3: Ablation Study & Stability
+[2026-10-17 12:43:34] COMMAND: python src/models/ablation_and_stability.py
+[2026-10-17 12:43:58] SUCCESS: GIAI ĐOẠN 3.3: Ablation Study & Stability completed in 24.51s
+[2026-10-17 12:43:58]   [OUT] Multi-Seed Stability results saved to outputs/tables\tbl_ch4_multiseed_stability.csv:
+[2026-10-17 12:43:58]   [OUT] random_seed          pr_auc         roc_auc     brier_score        f1_score
+[2026-10-17 12:43:58]   [OUT]          42          0.2748          0.6132          0.2114          0.3174
+[2026-10-17 12:43:58]   [OUT]         100          0.2758          0.6131          0.2114          0.3164
+[2026-10-17 12:43:58]   [OUT]        2024          0.2752          0.6133          0.2114          0.3158
+[2026-10-17 12:43:58]   [OUT]        2026           0.276          0.6133          0.2114          0.3148
+[2026-10-17 12:43:58]   [OUT]         777          0.2762          0.6132          0.2114          0.3164
+[2026-10-17 12:43:58]   [OUT]  Mean ± Std 0.2756 ± 0.0005 0.6132 ± 0.0001 0.2114 ± 0.0000 0.3162 ± 0.0009
+[2026-10-17 12:43:58] ==================================================
+[2026-10-17 12:43:58] STARTING: GIAI ĐOẠN 3.4: Plot Model Evaluation Figures
+[2026-10-17 12:43:58] COMMAND: python src/models/plot_model_evaluation.py
+[2026-10-17 12:44:06] SUCCESS: GIAI ĐOẠN 3.4: Plot Model Evaluation Figures completed in 7.84s
+[2026-10-17 12:44:06]   [OUT] --- Plotting Model Evaluation Figures ---
+[2026-10-17 12:44:06]   [OUT] Exported: outputs/figures\fig_ch4_01_roc_pr_curves_comparison.png
+[2026-10-17 12:44:06]   [OUT] Exported: outputs/figures\fig_ch4_02_calibration_curves.png
+[2026-10-17 12:44:06]   [OUT] Exported: outputs/figures\fig_ch4_03_ablation_study_bar.png
+[2026-10-17 12:44:06] ==================================================
+[2026-10-17 12:44:06] STARTING: GIAI ĐOẠN 4.1: Survival Analysis (Kaplan-Meier & CoxPH)
+[2026-10-17 12:44:06] COMMAND: python src/analytics/survival_analysis.py
+[2026-10-17 12:44:12] SUCCESS: GIAI ĐOẠN 4.1: Survival Analysis (Kaplan-Meier & CoxPH) completed in 5.60s
+[2026-10-17 12:44:12]   [OUT] CoxPH Hazard Ratios saved to outputs/tables\tbl_ch4_coxph_hazard_ratios.csv:
+[2026-10-17 12:44:12]   [OUT]                 covariate  hazard_ratio  hr_lower_95  hr_upper_95      p_value                                           business_impact
+[2026-10-17 12:44:12]   [OUT]        cart_to_page_ratio        1.3121       1.1660       1.4764 6.442300e-06          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 12:44:12]   [OUT] cart_abandonment_severity        1.0510       1.0418       1.0603 2.161900e-28          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 12:44:12]   [OUT]    pct_overnight_shipping        0.9338       0.8678       1.0048 6.684000e-02    Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+[2026-10-17 12:44:12]   [OUT] trans_discount_usage_rate        0.9201       0.8638       0.9801 9.766600e-03 Giảm nguy cơ từ bỏ giỏ hàng (Đòn bẩy thúc đẩy chuyển đổi)
+[2026-10-17 12:44:12]   [OUT]               bounce_rate        1.0162       0.9341       1.1056 7.080400e-01    Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+[2026-10-17 12:44:12]   [OUT]             loyalty_score        3.0147       2.5992       3.4966 3.555200e-48          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 12:44:12] ==================================================
+[2026-10-17 12:44:12] STARTING: GIAI ĐOẠN 4.2: Uplift Modeling (T-Learner CATE)
+[2026-10-17 12:44:12] COMMAND: python src/models/uplift_modeling.py
+[2026-10-17 12:44:22] SUCCESS: GIAI ĐOẠN 4.2: Uplift Modeling (T-Learner CATE) completed in 10.45s
+[2026-10-17 12:44:22]   [OUT]    Sure Things            1164            3.64             0.0389                      31.44                    34.65
+[2026-10-17 12:44:22]   [OUT]    Lost Causes           16715           52.23             0.0639                      16.95                    20.48
+[2026-10-17 12:44:22]   [OUT]  Sleeping Dogs            2921            9.13            -0.0616                      19.29                    23.33
+[2026-10-17 12:44:22]   [OUT] 
+[2026-10-17 12:44:22]   [OUT] --- 4. Computing Qini Curve and Qini Score ---
+[2026-10-17 12:44:22]   [OUT] Qini Score (Area under Uplift vs Random): -22372.64
+[2026-10-17 12:44:22]   [OUT] Generating full population Uplift predictions for Power BI...
+[2026-10-17 12:44:22]   [OUT] Full population uplift predictions saved.
+[2026-10-17 12:44:22] ==================================================
+[2026-10-17 12:44:22] STARTING: GIAI ĐOẠN 4.3: TreeSHAP Interaction Values
+[2026-10-17 12:44:22] COMMAND: python src/explainability/shap_interaction.py
+[2026-10-17 12:44:46] SUCCESS: GIAI ĐOẠN 4.3: TreeSHAP Interaction Values completed in 23.19s
+[2026-10-17 12:44:46]   [OUT]      cart_to_page_ratio                 total_spend                          0.00577                  Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và total_spend
+[2026-10-17 12:44:46]   [OUT] days_since_last_session               loyalty_score                          0.00503           Hiệu ứng phi tuyến tổng hợp giữa days_since_last_session và loyalty_score
+[2026-10-17 12:44:46]   [OUT]      cart_to_page_ratio     days_since_last_session                          0.00475      Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và days_since_last_session
+[2026-10-17 12:44:46]   [OUT]           loyalty_score session_frequency_per_month                          0.00475       Hiệu ứng phi tuyến tổng hợp giữa loyalty_score và session_frequency_per_month
+[2026-10-17 12:44:46]   [OUT]        hesitation_index session_frequency_per_month                          0.00420    Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và session_frequency_per_month
+[2026-10-17 12:44:46]   [OUT]        hesitation_index               loyalty_score                          0.00398                  Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và loyalty_score
+[2026-10-17 12:44:46]   [OUT]        hesitation_index                 total_spend                          0.00349 Thời gian cân nhắc kéo dài kết hợp giỏ hàng giá trị cao làm tăng rủi ro thoát trang
+[2026-10-17 12:44:46]   [OUT] SHAP interaction matrix checkpoint saved.
+[2026-10-17 12:44:46] ==================================================
+[2026-10-17 12:44:46] STARTING: GIAI ĐOẠN 4.4: Expected Profit Optimization
+[2026-10-17 12:44:46] COMMAND: python src/business_value/profit_optimization.py
+[2026-10-17 12:44:51] SUCCESS: GIAI ĐOẠN 4.4: Expected Profit Optimization completed in 5.01s
+[2026-10-17 12:44:51]   [OUT]       3            3200               797              24.91       1.23                  41.34               27.98               15882.00                   51691.18
+[2026-10-17 12:44:51]   [OUT]       4            3200               723              22.59       1.11                  52.47               26.63               12627.31                   64318.49
+[2026-10-17 12:44:51]   [OUT]       5            3200               687              21.47       1.06                  63.04               25.60               12049.53                   76368.02
+[2026-10-17 12:44:51]   [OUT]       6            3200               609              19.03       0.94                  72.42               24.51               10653.02                   87021.04
+[2026-10-17 12:44:51]   [OUT]       7            3200               564              17.62       0.87                  81.10               23.52               10416.07                   97437.11
+[2026-10-17 12:44:51]   [OUT]       8            3200               475              14.84       0.73                  88.41               22.44                7815.50                  105252.60
+[2026-10-17 12:44:51]   [OUT]       9            3200               419              13.09       0.64                  94.86               21.40                6199.66                  111452.26
+[2026-10-17 12:44:51]   [OUT]      10            3200               334              10.44       0.51                 100.00               20.30                4464.79                  115917.05
+[2026-10-17 12:44:51] ==================================================
+[2026-10-17 12:44:51] STARTING: GIAI ĐOẠN 4.5: Plot Business Insights Figures
+[2026-10-17 12:44:51] COMMAND: python src/business_value/plot_business_insights.py
+[2026-10-17 12:44:59] SUCCESS: GIAI ĐOẠN 4.5: Plot Business Insights Figures completed in 8.64s
+[2026-10-17 12:44:59]   [OUT] --- Plotting Business Insights and Optimization Figures ---
+[2026-10-17 12:44:59]   [OUT] Exported: outputs/figures\fig_ch4_04_survival_cart_decay.png
+[2026-10-17 12:44:59]   [OUT] Exported: outputs/figures\fig_ch4_05_uplift_qini_curve.png
+[2026-10-17 12:44:59]   [OUT] Exported: outputs/figures\fig_ch4_06_shap_interaction_matrix.png
+[2026-10-17 12:44:59]   [OUT] Exported: outputs/figures\fig_ch5_01_expected_profit_optimization.png
+[2026-10-17 12:44:59] ==================================================
+[2026-10-17 12:44:59] STARTING: GIAI ĐOẠN 5.1: Export Power BI Star Schema
+[2026-10-17 12:44:59] COMMAND: python src/data_engineering/export_powerbi_star_schema.py
+[2026-10-17 12:45:09] SUCCESS: GIAI ĐOẠN 5.1: Export Power BI Star Schema completed in 9.75s
+[2026-10-17 12:45:09]   [OUT] --- 3. Exporting Dimension Table: dim_customers.csv ---
+[2026-10-17 12:45:09]   [OUT] Dimension customers saved to outputs/powerbi\dim_customers.csv (200,000 rows)
+[2026-10-17 12:45:09]   [OUT] 
+[2026-10-17 12:45:09]   [OUT] --- 4. Exporting Dimension Table: dim_cart_behavior.csv ---
+[2026-10-17 12:45:09]   [OUT] Dimension cart behavior saved to outputs/powerbi\dim_cart_behavior.csv (200,000 rows)
+[2026-10-17 12:45:09]   [OUT] 
+[2026-10-17 12:45:09]   [OUT] --- 5. Exporting Simulation Table: dim_threshold_simulation.csv ---
+[2026-10-17 12:45:09]   [OUT] Simulation dimension saved to outputs/powerbi\dim_threshold_simulation.csv (99 rows)
+[2026-10-17 12:45:09] ==================================================
+[2026-10-17 12:45:09] STARTING: GIAI ĐOẠN 5.2: Business Recommendations Matrix
+[2026-10-17 12:45:09] COMMAND: python src/business_value/generate_business_recommendations.py
+[2026-10-17 12:45:10] SUCCESS: GIAI ĐOẠN 5.2: Business Recommendations Matrix completed in 1.48s
+[2026-10-17 12:45:10]   [OUT] --- Generating Quantitative Business Action Matrix ---
+[2026-10-17 12:45:10]   [OUT] Business Action Matrix successfully exported to outputs/tables\tbl_ch5_business_action_matrix.csv:
+[2026-10-17 12:45:10]   [OUT] strategy_id                                                                strategy_name                                                               target_segment                                      optimal_threshold                                                                                               target_kpi
+[2026-10-17 12:45:10]   [OUT]      ACT-01           Giải tỏa rào cản cước vận chuyển (Dynamic Free Shipping Threshold)                  Cụm 2: Cart Hesitators / Shipping-Sensitive (25.04% dân số)                    Giá trị giỏ hàng >= $68.0 (80% AOV)                    Giảm 20% tỷ lệ Cart Abandonment Severity; tăng 15% tỷ lệ hoàn tất thanh toán giỏ hàng
+[2026-10-17 12:45:10]   [OUT]      ACT-02 Can thiệp ưu đãi cá thể hóa theo Uplift CATE (Targeted Incentive Allocation)                                   Duy nhất nhóm Persuadables (35.00% dân số)           Điểm số tác động gia tăng Uplift Tau >= 0.10 Tăng 25% tỷ lệ chuyển đổi thuần (Net Uplift Conversion); tiết kiệm $15,000 ngân sách voucher bị lãng phí
+[2026-10-17 12:45:10]   [OUT]      ACT-03   Kích hoạt tự động theo thời điểm vàng sống còn (Golden Window Retargeting) Khách hàng có phiên thêm giỏ nhưng chưa hoàn tất giao dịch trong vòng 7 ngày      Thời gian trôi qua: 3h <= t <= 24h (t* <= 7 ngày)                        Đạt tỷ lệ mở thông báo >= 35%; tỷ lệ phục hồi giỏ hàng hoàn tất thanh toán >= 12%
+[2026-10-17 12:45:10]   [OUT]      ACT-04        Tối ưu hóa phân bổ ngân sách theo phân vị Decile Lift@K & Ngưỡng tau*    Decile 1 và Decile 2 (Top 20% khách hàng có xác suất chuyển đổi cao nhất) Ngưỡng quyết định tối ưu tau* = 0.01 (hoặc Decile 1-2)      Tối đa hóa lợi nhuận ròng đạt $115,917 trên tập Holdout; giảm 60% chi phí tiếp cận khách hàng (CAC)
+[2026-10-17 12:45:10] ==================================================
+[2026-10-17 12:45:10] STARTING: GIAI ĐOẠN 5.3: Generate Deliverables (Word Report, Slides, Video)
+[2026-10-17 12:45:10] COMMAND: python src/utils/generate_deliverables.py
+[2026-10-17 12:45:15] FAILED: GIAI ĐOẠN 5.3: Generate Deliverables (Word Report, Slides, Video) failed with return code 1
+[2026-10-17 12:45:15]   [ERR]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-17 12:45:15]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\site-packages\docx\opc\pkgwriter.py", line 34, in write
+[2026-10-17 12:45:15]   [ERR]     phys_writer = PhysPkgWriter(pkg_file)
+[2026-10-17 12:45:15]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\site-packages\docx\opc\phys_pkg.py", line 109, in __init__
+[2026-10-17 12:45:15]   [ERR]     self._zipf = ZipFile(pkg_file, "w", compression=ZIP_DEFLATED)
+[2026-10-17 12:45:15]   [ERR]                  ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-17 12:45:15]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\zipfile\__init__.py", line 1462, in __init__
+[2026-10-17 12:45:15]   [ERR]     self.fp = io.open(file, filemode)
+[2026-10-17 12:45:15]   [ERR]               ~~~~~~~^^^^^^^^^^^^^^^^
+[2026-10-17 12:45:15]   [ERR] PermissionError: [Errno 13] Permission denied: 'docs\\BaoCao_CuoiKy_ChiTiet.docx'
+[2026-10-17 12:45:15] ==================================================
+[2026-10-17 12:45:15] GLOBAL-E DATA SCIENCE PIPELINE - 1-CLICK EXECUTION
+[2026-10-17 12:45:15] Execution Root: D:\HuyD\Đại Học\BigData\Global-E
+[2026-10-17 12:45:15] ==================================================
+[2026-10-17 12:45:15] ==================================================
+[2026-10-17 12:45:15] STARTING: GIAI ĐOẠN 1.1: Data Healing
+[2026-10-17 12:45:15] COMMAND: python src/data_engineering/data_healing.py
+[2026-10-17 12:45:21] SUCCESS: GIAI ĐOẠN 1.1: Data Healing completed in 6.67s
+[2026-10-17 12:45:21]   [OUT]           customers         200000            200000              10000                           0
+[2026-10-17 12:45:21]   [OUT]            sessions        2000000           1002701             104730                      997299
+[2026-10-17 12:45:21]   [OUT]        transactions         500000            238087              25059                      249377
+[2026-10-17 12:45:21]   [OUT] marketing_campaigns            200               200                  0                           0
+[2026-10-17 12:45:21]   [OUT]            geo_data            100               100                  0                           0
+[2026-10-17 12:45:21]   [OUT]               train         160000            160000                  0                           0
+[2026-10-17 12:45:21]   [OUT]                test          40000             40000                  0                           0
+[2026-10-17 12:45:21]   [OUT]   sample_submission          40000             40000                  0                           0
+[2026-10-17 12:45:21] ==================================================
+[2026-10-17 12:45:21] STARTING: GIAI ĐOẠN 1.2: Build Features PIT
+[2026-10-17 12:45:21] COMMAND: python src/data_engineering/build_features_pit.py
+[2026-10-17 12:45:26] SUCCESS: GIAI ĐOẠN 1.2: Build Features PIT completed in 4.61s
+[2026-10-17 12:45:26]   [OUT] Joining feature tables and engineering ratios...
+[2026-10-17 12:45:26]   [OUT] Total rows in PIT feature store: 200000
+[2026-10-17 12:45:26]   [OUT] Labeled rows (train): 160000 (Positives: 32486, Rate: 0.2030)
+[2026-10-17 12:45:26]   [OUT] Unlabeled rows (test): 40000
+[2026-10-17 12:45:26]   [OUT] Saving to data/processed/customer_features_pit.parquet...
+[2026-10-17 12:45:26]   [OUT] Saving sample to outputs/tables\customer_features_pit_sample.csv...
+[2026-10-17 12:45:26]   [OUT] Generating Feature Dictionary...
+[2026-10-17 12:45:26]   [OUT] Feature dictionary with 63 features saved to outputs/tables\tbl_ch3_feature_dictionary.csv.
+[2026-10-17 12:45:26] ==================================================
+[2026-10-17 12:45:26] STARTING: GIAI ĐOẠN 1.3: PIT Integrity Tests
+[2026-10-17 12:45:26] COMMAND: pytest tests/test_pit_integrity.py
+[2026-10-17 12:45:29] SUCCESS: GIAI ĐOẠN 1.3: PIT Integrity Tests completed in 3.41s
+[2026-10-17 12:45:29]   [OUT] platform win32 -- Python 3.14.6, pytest-9.1.1, pluggy-1.6.0
+[2026-10-17 12:45:29]   [OUT] rootdir: D:\\HuyD\\\u0110\u1ea1i H\u1ecdc\\BigData\\Global-E
+[2026-10-17 12:45:29]   [OUT] plugins: anyio-4.15.1
+[2026-10-17 12:45:29]   [OUT] collected 3 items
+[2026-10-17 12:45:29]   [OUT] 
+[2026-10-17 12:45:29]   [OUT] tests\test_pit_integrity.py ...                                          [100%]
+[2026-10-17 12:45:29]   [OUT] 
+[2026-10-17 12:45:29]   [OUT] ============================== 3 passed in 1.52s ==============================
+[2026-10-17 12:45:29] ==================================================
+[2026-10-17 12:45:29] STARTING: GIAI ĐOẠN 1.4: Plot PIT Audit Figures
+[2026-10-17 12:45:29] COMMAND: python src/data_engineering/plot_pit_audit.py
+[2026-10-17 12:45:36] SUCCESS: GIAI ĐOẠN 1.4: Plot PIT Audit Figures completed in 6.19s
+[2026-10-17 12:45:36]   [OUT] --- Plotting PIT Audit Figures ---
+[2026-10-17 12:45:36]   [OUT] Exported: outputs/figures\fig_ch3_01_target_distribution.png
+[2026-10-17 12:45:36]   [OUT] Exported: outputs/figures\fig_ch3_02_cart_engagement_scatter.png
+[2026-10-17 12:45:36] ==================================================
+[2026-10-17 12:45:36] STARTING: GIAI ĐOẠN 2.1: Behavioral Hypothesis Testing
+[2026-10-17 12:45:36] COMMAND: python src/analytics/behavioral_hypothesis_testing.py
+[2026-10-17 12:45:39] SUCCESS: GIAI ĐOẠN 2.1: Behavioral Hypothesis Testing completed in 3.50s
+[2026-10-17 12:45:39]   [OUT]                     hypothesis_id             target_feature                         statistical_test  test_statistic        p_value                                                                                               conclusion
+[2026-10-17 12:45:39]   [OUT] 0       NORM_total_cart_additions       total_cart_additions            D'Agostino-Pearson Normaltest    4.808628e+02  3.819200e-105                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:45:39]   [OUT] 1         NORM_cart_to_page_ratio         cart_to_page_ratio            D'Agostino-Pearson Normaltest    2.194895e+03   0.000000e+00                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:45:39]   [OUT] 2  NORM_cart_abandonment_severity  cart_abandonment_severity            D'Agostino-Pearson Normaltest    3.051513e+02   5.460500e-67                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:45:39]   [OUT] 3    NORM_days_since_last_session    days_since_last_session            D'Agostino-Pearson Normaltest    3.201608e+03   0.000000e+00                                        Phân phối lệch phải phi chuẩn mạnh (Bắt buộc dùng Non-parametric)
+[2026-10-17 12:45:39]   [OUT] 4                              H1     pct_overnight_shipping  Mann-Whitney U Test (One-sided Greater)    1.957170e+09   7.041100e-08      Bác bỏ H0: Nhóm từ bỏ giỏ hàng có tỷ lệ chịu cước Overnight cao hơn có ý nghĩa thống kê (p < 0.001)
+[2026-10-17 12:45:39]   [OUT] 5                              H2              cart_velocity                    Kruskal-Wallis H-Test    1.589520e+03   0.000000e+00  Bác bỏ H0: Tốc độ thêm giỏ (cart_velocity) suy giảm đáng kể theo thời gian kể từ phiên cuối (p < 0.001)
+[2026-10-17 12:45:39]   [OUT] 6                              H3  trans_discount_usage_rate                    Kruskal-Wallis H-Test    1.430000e+00   6.995900e-01                                                                             Chưa đủ bằng chứng bác bỏ H0
+[2026-10-17 12:45:39] ==================================================
+[2026-10-17 12:45:39] STARTING: GIAI ĐOẠN 2.2: Customer Segmentation (GMM & HDBSCAN)
+[2026-10-17 12:45:39] COMMAND: python src/analytics/customer_segmentation.py
+[2026-10-17 13:58:44] SUCCESS: GIAI ĐOẠN 2.2: Customer Segmentation (GMM & HDBSCAN) completed in 4384.83s
+[2026-10-17 13:58:44]   [OUT]  cluster_id                         persona_name  customer_count  pct_population  mean_recency  mean_frequency  mean_monetary  mean_cart_additions  mean_abandonment_severity  conversion_rate
+[2026-10-17 13:58:44]   [OUT]           1                 High-Value Champions           13206            6.60         412.3             2.6     423.649994                  8.2                        3.5            19.51
+[2026-10-17 13:58:44]   [OUT]           2 Cart Hesitators / Shipping-Sensitive           50077           25.04         110.9             2.1     267.010010                 11.3                        4.9            20.35
+[2026-10-17 13:58:44]   [OUT]           3                     Discount Seekers           57802           28.90          76.2             0.0       0.000000                  7.6                        3.3            20.62
+[2026-10-17 13:58:44]   [OUT]           4                      Dormant At-Risk           39323           19.66         999.0             0.0       0.000000                  0.0                        0.0            20.56
+[2026-10-17 13:58:44]   [OUT]           5                     Passive Browsers           39592           19.80          47.0             1.2      84.839996                 11.3                        4.9            20.02
+[2026-10-17 13:58:44]   [OUT] 
+[2026-10-17 13:58:44]   [OUT] Saved cluster assignments to data/processed\customer_cluster_assignments.parquet
+[2026-10-17 13:58:44] ==================================================
+[2026-10-17 13:58:44] STARTING: GIAI ĐOẠN 2.3: Plot Segmentation Figures
+[2026-10-17 13:58:44] COMMAND: python src/analytics/plot_segmentation.py
+[2026-10-17 13:58:52] SUCCESS: GIAI ĐOẠN 2.3: Plot Segmentation Figures completed in 8.22s
+[2026-10-17 13:58:52]   [OUT] --- Plotting Segmentation Figures ---
+[2026-10-17 13:58:52]   [OUT] Exported: outputs/figures\fig_ch3_03_gmm_cluster_radar.png
+[2026-10-17 13:58:52]   [OUT] Exported: outputs/figures\fig_ch3_04_cart_friction_by_cluster.png
+[2026-10-17 13:58:52]   [OUT] Exported: outputs/figures\fig_ch3_05_gmm_bic_aic_selection.png
+[2026-10-17 13:58:52] ==================================================
+[2026-10-17 13:58:52] STARTING: GIAI ĐOẠN 3.1: Train Propensity Models (Optuna HPO)
+[2026-10-17 13:58:52] COMMAND: python src/models/train_propensity_models.py
+[2026-10-17 14:03:18] SUCCESS: GIAI ĐOẠN 3.1: Train Propensity Models (Optuna HPO) completed in 265.57s
+[2026-10-17 14:03:18]   [OUT] XGBoost Best Trial: PR-AUC = 0.2698
+[2026-10-17 14:03:18]   [OUT] 
+[2026-10-17 14:03:18]   [OUT] Best hyperparameters saved to outputs/tables\tbl_ch4_optuna_best_hyperparameters.csv
+[2026-10-17 14:03:18]   [OUT] 
+[2026-10-17 14:03:18]   [OUT] --- 4. Building Stacking Ensemble ---
+[2026-10-17 14:03:18]   [OUT] Stacking Ensemble trained in 63.40s (Meta-weights: [[2.2715006 1.8994408 0.8367073]])
+[2026-10-17 14:03:18]   [OUT] 
+[2026-10-17 14:03:18]   [OUT] Checkpoint successfully saved to outputs/models\propensity_checkpoint.pkl
+[2026-10-17 14:03:18] ==================================================
+[2026-10-17 14:03:18] STARTING: GIAI ĐOẠN 3.2: Calibrate & Evaluate Models
+[2026-10-17 14:03:18] COMMAND: python src/models/calibrate_and_evaluate.py
+[2026-10-17 14:03:37] SUCCESS: GIAI ĐOẠN 3.2: Calibrate & Evaluate Models completed in 19.46s
+[2026-10-17 14:03:37]   [OUT]                   Stacking Ensemble  0.2770   0.6137    0.0000     0.0000  0.0000    0.7970       0.1576 0.0009         63.40                0.0114
+[2026-10-17 14:03:37]   [OUT]                             XGBoost  0.2759   0.6124    0.2853     0.2991  0.2727    0.7226       0.2067 0.2206          3.56                0.0011
+[2026-10-17 14:03:37]   [OUT]                            LightGBM  0.2757   0.6133    0.3107     0.2939  0.3295    0.7031       0.2084 0.2236          1.84                0.0028
+[2026-10-17 14:03:37]   [OUT]                       Random Forest  0.2715   0.6064    0.0000     0.0000  0.0000    0.7970       0.1584 0.0144         36.68                0.0076
+[2026-10-17 14:03:37]   [OUT]                 Logistic Regression  0.2669   0.5967    0.0006     0.6667  0.0003    0.7970       0.1587 0.0037          0.60                0.0002
+[2026-10-17 14:03:37]   [OUT] 
+[2026-10-17 14:03:37]   [OUT] Selected Best Calibrated Model: Calibrated LightGBM (Platt Sigmoid)
+[2026-10-17 14:03:37]   [OUT] Exported best calibrated model to outputs/models\best_calibrated_model.pkl
+[2026-10-17 14:03:37] ==================================================
+[2026-10-17 14:03:37] STARTING: GIAI ĐOẠN 3.3: Ablation Study & Stability
+[2026-10-17 14:03:37] COMMAND: python src/models/ablation_and_stability.py
+[2026-10-17 14:04:03] SUCCESS: GIAI ĐOẠN 3.3: Ablation Study & Stability completed in 25.66s
+[2026-10-17 14:04:03]   [OUT] Multi-Seed Stability results saved to outputs/tables\tbl_ch4_multiseed_stability.csv:
+[2026-10-17 14:04:03]   [OUT] random_seed          pr_auc         roc_auc     brier_score        f1_score
+[2026-10-17 14:04:03]   [OUT]          42          0.2757          0.6133          0.2084          0.3107
+[2026-10-17 14:04:03]   [OUT]         100          0.2757          0.6126          0.2085          0.3076
+[2026-10-17 14:04:03]   [OUT]        2024          0.2767          0.6136          0.2083          0.3096
+[2026-10-17 14:04:03]   [OUT]        2026          0.2761          0.6133          0.2084          0.3091
+[2026-10-17 14:04:03]   [OUT]         777          0.2762          0.6138          0.2084          0.3115
+[2026-10-17 14:04:03]   [OUT]  Mean ± Std 0.2761 ± 0.0004 0.6133 ± 0.0004 0.2084 ± 0.0001 0.3097 ± 0.0013
+[2026-10-17 14:04:03] ==================================================
+[2026-10-17 14:04:03] STARTING: GIAI ĐOẠN 3.4: Plot Model Evaluation Figures
+[2026-10-17 14:04:03] COMMAND: python src/models/plot_model_evaluation.py
+[2026-10-17 14:04:12] SUCCESS: GIAI ĐOẠN 3.4: Plot Model Evaluation Figures completed in 8.70s
+[2026-10-17 14:04:12]   [OUT] --- Plotting Model Evaluation Figures ---
+[2026-10-17 14:04:12]   [OUT] Exported: outputs/figures\fig_ch4_01_roc_pr_curves_comparison.png
+[2026-10-17 14:04:12]   [OUT] Exported: outputs/figures\fig_ch4_02_calibration_curves.png
+[2026-10-17 14:04:12]   [OUT] Exported: outputs/figures\fig_ch4_03_ablation_study_bar.png
+[2026-10-17 14:04:12] ==================================================
+[2026-10-17 14:04:12] STARTING: GIAI ĐOẠN 4.1: Survival Analysis (Kaplan-Meier & CoxPH)
+[2026-10-17 14:04:12] COMMAND: python src/analytics/survival_analysis.py
+[2026-10-17 14:04:18] SUCCESS: GIAI ĐOẠN 4.1: Survival Analysis (Kaplan-Meier & CoxPH) completed in 6.45s
+[2026-10-17 14:04:18]   [OUT] CoxPH Hazard Ratios saved to outputs/tables\tbl_ch4_coxph_hazard_ratios.csv:
+[2026-10-17 14:04:18]   [OUT]                 covariate  hazard_ratio  hr_lower_95  hr_upper_95      p_value                                           business_impact
+[2026-10-17 14:04:18]   [OUT]        cart_to_page_ratio        1.3121       1.1660       1.4764 6.442300e-06          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 14:04:18]   [OUT] cart_abandonment_severity        1.0510       1.0418       1.0603 2.161900e-28          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 14:04:18]   [OUT]    pct_overnight_shipping        0.9338       0.8678       1.0048 6.684000e-02    Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+[2026-10-17 14:04:18]   [OUT] trans_discount_usage_rate        0.9201       0.8638       0.9801 9.766600e-03 Giảm nguy cơ từ bỏ giỏ hàng (Đòn bẩy thúc đẩy chuyển đổi)
+[2026-10-17 14:04:18]   [OUT]               bounce_rate        1.0162       0.9341       1.1056 7.080400e-01    Tác động trung tính / Không có ý nghĩa thống kê rõ rệt
+[2026-10-17 14:04:18]   [OUT]             loyalty_score        3.0147       2.5992       3.4966 3.555200e-48          Làm tăng nguy cơ từ bỏ giỏ hàng (Rào cản ma sát)
+[2026-10-17 14:04:18] ==================================================
+[2026-10-17 14:04:18] STARTING: GIAI ĐOẠN 4.2: Uplift Modeling (T-Learner CATE)
+[2026-10-17 14:04:18] COMMAND: python src/models/uplift_modeling.py
+[2026-10-17 14:04:30] SUCCESS: GIAI ĐOẠN 4.2: Uplift Modeling (T-Learner CATE) completed in 12.41s
+[2026-10-17 14:04:30]   [OUT]    Sure Things            1151            3.60             0.0383                      31.86                    31.34
+[2026-10-17 14:04:30]   [OUT]    Lost Causes           16764           52.39             0.0641                      16.91                    19.97
+[2026-10-17 14:04:30]   [OUT]  Sleeping Dogs            2885            9.02            -0.0618                      19.30                    23.66
+[2026-10-17 14:04:30]   [OUT] 
+[2026-10-17 14:04:30]   [OUT] --- 4. Computing Qini Curve and Qini Score ---
+[2026-10-17 14:04:30]   [OUT] Qini Score (Area under Uplift vs Random): -31780.45
+[2026-10-17 14:04:30]   [OUT] Generating full population Uplift predictions for Power BI...
+[2026-10-17 14:04:30]   [OUT] Full population uplift predictions saved.
+[2026-10-17 14:04:30] ==================================================
+[2026-10-17 14:04:30] STARTING: GIAI ĐOẠN 4.3: TreeSHAP Interaction Values
+[2026-10-17 14:04:30] COMMAND: python src/explainability/shap_interaction.py
+[2026-10-17 14:04:55] SUCCESS: GIAI ĐOẠN 4.3: TreeSHAP Interaction Values completed in 24.06s
+[2026-10-17 14:04:55]   [OUT]      cart_to_page_ratio                 total_spend                          0.00577                  Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và total_spend
+[2026-10-17 14:04:55]   [OUT] days_since_last_session               loyalty_score                          0.00503           Hiệu ứng phi tuyến tổng hợp giữa days_since_last_session và loyalty_score
+[2026-10-17 14:04:55]   [OUT]      cart_to_page_ratio     days_since_last_session                          0.00475      Hiệu ứng phi tuyến tổng hợp giữa cart_to_page_ratio và days_since_last_session
+[2026-10-17 14:04:55]   [OUT]           loyalty_score session_frequency_per_month                          0.00475       Hiệu ứng phi tuyến tổng hợp giữa loyalty_score và session_frequency_per_month
+[2026-10-17 14:04:55]   [OUT]        hesitation_index session_frequency_per_month                          0.00420    Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và session_frequency_per_month
+[2026-10-17 14:04:55]   [OUT]        hesitation_index               loyalty_score                          0.00398                  Hiệu ứng phi tuyến tổng hợp giữa hesitation_index và loyalty_score
+[2026-10-17 14:04:55]   [OUT]        hesitation_index                 total_spend                          0.00349 Thời gian cân nhắc kéo dài kết hợp giỏ hàng giá trị cao làm tăng rủi ro thoát trang
+[2026-10-17 14:04:55]   [OUT] SHAP interaction matrix checkpoint saved.
+[2026-10-17 14:04:55] ==================================================
+[2026-10-17 14:04:55] STARTING: GIAI ĐOẠN 4.4: Expected Profit Optimization
+[2026-10-17 14:04:55] COMMAND: python src/business_value/profit_optimization.py
+[2026-10-17 14:05:00] SUCCESS: GIAI ĐOẠN 4.4: Expected Profit Optimization completed in 5.70s
+[2026-10-17 14:05:00]   [OUT]       3            3200               827              25.84       1.27                  41.85               28.32               16288.69                   52310.07
+[2026-10-17 14:05:00]   [OUT]       4            3200               686              21.44       1.06                  52.41               26.60               12634.31                   64944.38
+[2026-10-17 14:05:00]   [OUT]       5            3200               696              21.75       1.07                  63.12               25.63               11633.54                   76577.92
+[2026-10-17 14:05:00]   [OUT]       6            3200               613              19.16       0.94                  72.56               24.55               10986.51                   87564.43
+[2026-10-17 14:05:00]   [OUT]       7            3200               561              17.53       0.86                  81.19               23.55               10059.76                   97624.19
+[2026-10-17 14:05:00]   [OUT]       8            3200               471              14.72       0.72                  88.44               22.45                7781.28                  105405.47
+[2026-10-17 14:05:00]   [OUT]       9            3200               416              13.00       0.64                  94.84               21.40                5907.00                  111312.46
+[2026-10-17 14:05:00]   [OUT]      10            3200               335              10.47       0.52                 100.00               20.30                4604.59                  115917.06
+[2026-10-17 14:05:00] ==================================================
+[2026-10-17 14:05:00] STARTING: GIAI ĐOẠN 4.5: Plot Business Insights Figures
+[2026-10-17 14:05:00] COMMAND: python src/business_value/plot_business_insights.py
+[2026-10-17 14:05:10] SUCCESS: GIAI ĐOẠN 4.5: Plot Business Insights Figures completed in 9.97s
+[2026-10-17 14:05:10]   [OUT] --- Plotting Business Insights and Optimization Figures ---
+[2026-10-17 14:05:10]   [OUT] Exported: outputs/figures\fig_ch4_04_survival_cart_decay.png
+[2026-10-17 14:05:10]   [OUT] Exported: outputs/figures\fig_ch4_05_uplift_qini_curve.png
+[2026-10-17 14:05:10]   [OUT] Exported: outputs/figures\fig_ch4_06_shap_interaction_matrix.png
+[2026-10-17 14:05:10]   [OUT] Exported: outputs/figures\fig_ch5_01_expected_profit_optimization.png
+[2026-10-17 14:05:10] ==================================================
+[2026-10-17 14:05:10] STARTING: GIAI ĐOẠN 5.1: Export Power BI Star Schema
+[2026-10-17 14:05:10] COMMAND: python src/data_engineering/export_powerbi_star_schema.py
+[2026-10-17 14:05:23] SUCCESS: GIAI ĐOẠN 5.1: Export Power BI Star Schema completed in 12.41s
+[2026-10-17 14:05:23]   [OUT] --- 3. Exporting Dimension Table: dim_customers.csv ---
+[2026-10-17 14:05:23]   [OUT] Dimension customers saved to outputs/powerbi\dim_customers.csv (200,000 rows)
+[2026-10-17 14:05:23]   [OUT] 
+[2026-10-17 14:05:23]   [OUT] --- 4. Exporting Dimension Table: dim_cart_behavior.csv ---
+[2026-10-17 14:05:23]   [OUT] Dimension cart behavior saved to outputs/powerbi\dim_cart_behavior.csv (200,000 rows)
+[2026-10-17 14:05:23]   [OUT] 
+[2026-10-17 14:05:23]   [OUT] --- 5. Exporting Simulation Table: dim_threshold_simulation.csv ---
+[2026-10-17 14:05:23]   [OUT] Simulation dimension saved to outputs/powerbi\dim_threshold_simulation.csv (99 rows)
+[2026-10-17 14:05:23] ==================================================
+[2026-10-17 14:05:23] STARTING: GIAI ĐOẠN 5.2: Business Recommendations Matrix
+[2026-10-17 14:05:23] COMMAND: python src/business_value/generate_business_recommendations.py
+[2026-10-17 14:05:24] SUCCESS: GIAI ĐOẠN 5.2: Business Recommendations Matrix completed in 1.82s
+[2026-10-17 14:05:24]   [OUT] --- Generating Quantitative Business Action Matrix ---
+[2026-10-17 14:05:24]   [OUT] Business Action Matrix successfully exported to outputs/tables\tbl_ch5_business_action_matrix.csv:
+[2026-10-17 14:05:24]   [OUT] strategy_id                                                                strategy_name                                                               target_segment                                      optimal_threshold                                                                                               target_kpi
+[2026-10-17 14:05:24]   [OUT]      ACT-01           Giải tỏa rào cản cước vận chuyển (Dynamic Free Shipping Threshold)                  Cụm 2: Cart Hesitators / Shipping-Sensitive (25.04% dân số)                    Giá trị giỏ hàng >= $68.0 (80% AOV)                    Giảm 20% tỷ lệ Cart Abandonment Severity; tăng 15% tỷ lệ hoàn tất thanh toán giỏ hàng
+[2026-10-17 14:05:24]   [OUT]      ACT-02 Can thiệp ưu đãi cá thể hóa theo Uplift CATE (Targeted Incentive Allocation)                                   Duy nhất nhóm Persuadables (35.00% dân số)           Điểm số tác động gia tăng Uplift Tau >= 0.10 Tăng 25% tỷ lệ chuyển đổi thuần (Net Uplift Conversion); tiết kiệm $15,000 ngân sách voucher bị lãng phí
+[2026-10-17 14:05:24]   [OUT]      ACT-03   Kích hoạt tự động theo thời điểm vàng sống còn (Golden Window Retargeting) Khách hàng có phiên thêm giỏ nhưng chưa hoàn tất giao dịch trong vòng 7 ngày      Thời gian trôi qua: 3h <= t <= 24h (t* <= 7 ngày)                        Đạt tỷ lệ mở thông báo >= 35%; tỷ lệ phục hồi giỏ hàng hoàn tất thanh toán >= 12%
+[2026-10-17 14:05:24]   [OUT]      ACT-04        Tối ưu hóa phân bổ ngân sách theo phân vị Decile Lift@K & Ngưỡng tau*    Decile 1 và Decile 2 (Top 20% khách hàng có xác suất chuyển đổi cao nhất) Ngưỡng quyết định tối ưu tau* = 0.07 (hoặc Decile 1-2)      Tối đa hóa lợi nhuận ròng đạt $115,918 trên tập Holdout; giảm 60% chi phí tiếp cận khách hàng (CAC)
+[2026-10-17 14:05:24] ==================================================
+[2026-10-17 14:05:24] STARTING: GIAI ĐOẠN 5.3: Generate Deliverables (Word Report, Slides, Video)
+[2026-10-17 14:05:24] COMMAND: python src/utils/generate_deliverables.py
+[2026-10-17 14:05:30] FAILED: GIAI ĐOẠN 5.3: Generate Deliverables (Word Report, Slides, Video) failed with return code 1
+[2026-10-17 14:05:30]   [ERR]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-17 14:05:30]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\site-packages\docx\opc\pkgwriter.py", line 34, in write
+[2026-10-17 14:05:30]   [ERR]     phys_writer = PhysPkgWriter(pkg_file)
+[2026-10-17 14:05:30]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\site-packages\docx\opc\phys_pkg.py", line 109, in __init__
+[2026-10-17 14:05:30]   [ERR]     self._zipf = ZipFile(pkg_file, "w", compression=ZIP_DEFLATED)
+[2026-10-17 14:05:30]   [ERR]                  ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-17 14:05:30]   [ERR]   File "C:\Users\HayD\AppData\Local\Programs\Python\Python314\Lib\zipfile\__init__.py", line 1462, in __init__
+[2026-10-17 14:05:30]   [ERR]     self.fp = io.open(file, filemode)
+[2026-10-17 14:05:30]   [ERR]               ~~~~~~~^^^^^^^^^^^^^^^^
+[2026-10-17 14:05:30]   [ERR] PermissionError: [Errno 13] Permission denied: 'docs\\BaoCao_CuoiKy_ChiTiet.docx'
