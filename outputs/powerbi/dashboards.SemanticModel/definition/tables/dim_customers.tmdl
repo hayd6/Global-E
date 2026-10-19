@@ -1,0 +1,63 @@
+table dim_customers
+	lineageTag: 61001f60-2926-43fc-96a4-8b80772edbb5
+
+	column customer_id
+		dataType: int64
+		lineageTag: 6e739ce4-68e7-4a05-86fc-6553c1caeea5
+		sourceColumn: customer_id
+
+	column age
+		dataType: int64
+		lineageTag: d9fd23cb-5f8b-4a8e-ada7-343507ea486e
+		sourceColumn: age
+
+	column age_group
+		dataType: string
+		lineageTag: 5ca52527-5197-4ea4-854b-a807616a61b2
+		sourceColumn: age_group
+
+	column gender
+		dataType: string
+		lineageTag: e7a32dbb-c081-4b58-bf68-595a47c2626c
+		sourceColumn: gender
+
+	column country
+		dataType: string
+		lineageTag: e857fcdf-def2-44f3-9dfc-cb528a2d384a
+		sourceColumn: country
+
+	column registration_date
+		dataType: dateTime
+		lineageTag: 69b96bc5-1230-4e66-961c-4f80a12bf509
+		sourceColumn: registration_date
+
+	column customer_tier
+		dataType: string
+		lineageTag: 513e58c2-9124-4459-81ab-93f59f32b0e0
+		sourceColumn: customer_tier
+
+	column loyalty_score
+		dataType: double
+		lineageTag: 524519ae-6723-426b-af7b-808028695517
+		sourceColumn: loyalty_score
+
+	column credit_limit
+		dataType: double
+		lineageTag: 91628a9d-f94a-426f-847d-c58c8938c1f9
+		sourceColumn: credit_limit
+
+	column credit_limit_tier
+		dataType: string
+		lineageTag: 0ab75308-7a61-4de9-b770-8520bf11e015
+		sourceColumn: credit_limit_tier
+
+	partition dim_customers = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\powerbi\dim_customers.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", Int64.Type}, {"age", Int64.Type}, {"age_group", type text}, {"gender", type text}, {"country", type text}, {"registration_date", type datetime}, {"customer_tier", type text}, {"loyalty_score", type number}, {"credit_limit", type number}, {"credit_limit_tier", type text}})
+				in
+				    #"Changed Type"
+

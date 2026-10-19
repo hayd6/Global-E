@@ -1,0 +1,683 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_funnel_stages.stage_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_funnel_stages",
+			          "ConceptualProperty": "stage_order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Thứ Tự": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_funnel_stages.stage_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_funnel_stages",
+			          "ConceptualProperty": "stage_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Giai Đoạn Phễu": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_funnel_stages.stage_users_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_funnel_stages",
+			          "ConceptualProperty": "stage_users_count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Quy Mô Phiên (Users)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_funnel_stages.conversion_rate_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_funnel_stages",
+			          "ConceptualProperty": "conversion_rate_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tỷ Lệ Chuyển Đổi CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_funnel_stages.drop_off_rate_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_funnel_stages",
+			          "ConceptualProperty": "drop_off_rate_pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tỷ Lệ Rơi Rụng (Drop-off)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.cluster_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "cluster_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Mã Cụm": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.persona_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "persona_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Chân Dung Khách Hàng GMM (k*=5)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.customer_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "customer_count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Quy Mô (Khách)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.pct_population": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "pct_population"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tỷ Trọng Dân Số": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.mean_monetary": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "mean_monetary"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Chi Tiêu AOV ($)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.mean_recency": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "mean_recency"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Độ Trễ Recency (Ngày)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.mean_frequency": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "mean_frequency"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tần Suất Mua (Đơn)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.mean_cart_additions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "mean_cart_additions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lượt Thêm Giỏ": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.mean_abandonment_severity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "mean_abandonment_severity"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Mức Bỏ Giỏ (1-5)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch3_gmm_cluster_profiles.conversion_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch3_gmm_cluster_profiles",
+			          "ConceptualProperty": "conversion_rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tỷ Lệ Mua CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.uplift_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "uplift_segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Phân Nhóm Tiếp Thị Uplift CATE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.customer_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "customer_count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Quy Mô (Khách)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.pct_population": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "pct_population"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tỷ Trọng Dân Số": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.mean_uplift_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "mean_uplift_score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Điểm Uplift Thuần (CATE)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.control_conversion_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "control_conversion_rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CVR Đối Chứng (Control)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.treatment_conversion_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "treatment_conversion_rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CVR Can Thiệp (Treatment)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.net_incremental_orders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "net_incremental_orders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Đơn Tăng Thêm Thuần": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch4_uplift_segments_summary.business_recommendation": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch4_uplift_segments_summary",
+			          "ConceptualProperty": "business_recommendation"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Đề Xuất Hành Động Can Thiệp Tác Chiến": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.strategy_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "strategy_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Mã Chiến Lược": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.strategy_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "strategy_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tên Gói Hành Động Đề Xuất": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.target_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "target_segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Phân Khúc Mục Tiêu": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.intervention_action": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "intervention_action"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hành Động Can Thiệp Cụ Thể": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.channel": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "channel"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Kênh Triển Khai": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.optimal_threshold": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "optimal_threshold"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ngưỡng Quyết Định (τ*)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.potential_risks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "potential_risks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rủi Ro Tiềm Ẩn": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.mitigation_plan": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "mitigation_plan"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Kế Hoạch Giảm Thiểu Rủi Ro": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tbl_ch5_business_action_matrix.target_kpi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "tbl_ch5_business_action_matrix",
+			          "ConceptualProperty": "target_kpi"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Chỉ Số Đo Lường Mục Tiêu (KPI)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

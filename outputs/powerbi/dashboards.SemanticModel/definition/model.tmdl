@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+annotation PBI_QueryOrder = ["dim_threshold_simulation","dim_customers","dim_cart_behavior","fact_customer_decisions","tbl_ch4_survival_summary","tbl_ch5_decile_lift_profit","tbl_ch5_business_action_matrix","tbl_ch3_gmm_cluster_profiles","tbl_ch4_coxph_hazard_ratios","tbl_ch4_uplift_segments_summary"]
+
+ref table dim_threshold_simulation
+ref table dim_customers
+ref table dim_cart_behavior
+ref table fact_customer_decisions
+ref table tbl_ch4_survival_summary
+ref table tbl_ch5_decile_lift_profit
+ref table tbl_ch5_business_action_matrix
+ref table dim_funnel_stages
+ref table tbl_ch3_gmm_cluster_profiles
+ref table tbl_ch4_coxph_hazard_ratios
+ref table tbl_ch4_uplift_segments_summary
+
+ref cultureInfo en-US
+

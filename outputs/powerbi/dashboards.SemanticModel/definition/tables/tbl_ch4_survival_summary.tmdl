@@ -1,0 +1,53 @@
+table tbl_ch4_survival_summary
+	lineageTag: 94e73634-0089-4cb5-a9fc-ba18af3b9150
+
+	column stratum_name
+		dataType: string
+		lineageTag: 3a78c573-ab5c-4048-b920-a314dd22a092
+		sourceColumn: stratum_name
+
+	column sample_size
+		dataType: int64
+		lineageTag: a0578162-cefe-4600-9a51-265721cd19f8
+		sourceColumn: sample_size
+
+	column events_observed
+		dataType: int64
+		lineageTag: b71c87ef-dfc1-4527-9798-38fa9cdda0f9
+		sourceColumn: events_observed
+
+	column survival_prob_3d
+		dataType: double
+		lineageTag: 71709ca8-df2d-45dc-9f9c-0ff9afb424f4
+		sourceColumn: survival_prob_3d
+
+	column survival_prob_7d
+		dataType: double
+		lineageTag: 205fefe2-0b62-4a5d-bc56-f6cfc3b6a894
+		sourceColumn: survival_prob_7d
+
+	column survival_prob_14d
+		dataType: double
+		lineageTag: c584b05b-05f4-4b75-b021-b5718f8af679
+		sourceColumn: survival_prob_14d
+
+	column survival_prob_30d
+		dataType: double
+		lineageTag: 2ac632dc-bbb1-409f-9359-6aafca2d98ad
+		sourceColumn: survival_prob_30d
+
+	column median_survival_days
+		dataType: double
+		lineageTag: 20686524-1a90-45bc-bf2b-51028ea10226
+		sourceColumn: median_survival_days
+
+	partition tbl_ch4_survival_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\tables\tbl_ch4_survival_summary.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"stratum_name", type text}, {"sample_size", Int64.Type}, {"events_observed", Int64.Type}, {"survival_prob_3d", type number}, {"survival_prob_7d", type number}, {"survival_prob_14d", type number}, {"survival_prob_30d", type number}, {"median_survival_days", type number}})
+				in
+				    #"Changed Type"
+

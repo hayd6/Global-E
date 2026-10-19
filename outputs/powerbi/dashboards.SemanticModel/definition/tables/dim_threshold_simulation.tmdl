@@ -1,0 +1,58 @@
+table dim_threshold_simulation
+	lineageTag: 93c50811-98be-4b31-a700-bcf74298cb25
+
+	column threshold
+		dataType: double
+		lineageTag: 1afb7d11-ce78-4c12-b6d1-e55cd4d1a766
+		sourceColumn: threshold
+
+	column total_contacts
+		dataType: int64
+		lineageTag: a388e859-0e11-472b-ae5a-ac55a873b1d1
+		sourceColumn: total_contacts
+
+	column true_positives
+		dataType: int64
+		lineageTag: 637f6787-799b-4953-96bd-46d8d62a53e7
+		sourceColumn: true_positives
+
+	column false_positives
+		dataType: int64
+		lineageTag: 83b40e12-ed5a-45fc-932d-a9853b1197dc
+		sourceColumn: false_positives
+
+	column expected_net_profit_usd
+		dataType: double
+		lineageTag: 23dfd381-e4b2-46d7-9a8a-3499378dd0ce
+		sourceColumn: expected_net_profit_usd
+
+	column precision
+		dataType: double
+		lineageTag: dad9d461-cbde-49f6-9168-69b3a0c43311
+		sourceColumn: precision
+
+	column recall
+		dataType: double
+		lineageTag: 3d33ad26-2587-4f7f-8c0a-1e4d87d87844
+		sourceColumn: recall
+
+	column f1_score
+		dataType: double
+		lineageTag: 44599fab-26c4-4184-8bd4-b6eef4e37eba
+		sourceColumn: f1_score
+
+	column roi_percentage
+		dataType: double
+		lineageTag: 12bbe920-ba33-4cf1-a631-dba07196a4ab
+		sourceColumn: roi_percentage
+
+	partition dim_threshold_simulation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\powerbi\dim_threshold_simulation.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"threshold", type number}, {"total_contacts", Int64.Type}, {"true_positives", Int64.Type}, {"false_positives", Int64.Type}, {"expected_net_profit_usd", type number}, {"precision", type number}, {"recall", type number}, {"f1_score", type number}, {"roi_percentage", type number}})
+				in
+				    #"Changed Type"
+

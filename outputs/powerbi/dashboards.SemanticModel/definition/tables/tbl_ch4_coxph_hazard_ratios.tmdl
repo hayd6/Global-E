@@ -1,0 +1,53 @@
+table tbl_ch4_coxph_hazard_ratios
+	lineageTag: c8921a44-5920-4a82-8291-fe7281920183
+
+	column covariate
+		dataType: string
+		lineageTag: 18293049-5829-4720-a839-bc8291029384
+		sourceColumn: covariate
+
+	column coef
+		dataType: double
+		formatString: #,##0.0000
+		lineageTag: 82910293-4829-4720-b839-ac8291029385
+		sourceColumn: coef
+
+	column hazard_ratio
+		dataType: double
+		formatString: #,##0.00
+		lineageTag: 92830192-3829-4720-c839-ba8291029386
+		sourceColumn: hazard_ratio
+
+	column hr_lower_95
+		dataType: double
+		formatString: #,##0.00
+		lineageTag: 38291029-2839-4720-d839-ca8291029387
+		sourceColumn: hr_lower_95
+
+	column hr_upper_95
+		dataType: double
+		formatString: #,##0.00
+		lineageTag: 48291029-1839-4720-e839-da8291029388
+		sourceColumn: hr_upper_95
+
+	column p_value
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 58291029-0839-4720-f839-ea8291029389
+		sourceColumn: p_value
+
+	column business_impact
+		dataType: string
+		lineageTag: 68291029-9839-4720-a839-fa8291029390
+		sourceColumn: business_impact
+
+	partition tbl_ch4_coxph_hazard_ratios = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\tables\tbl_ch4_coxph_hazard_ratios.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"covariate", type text}, {"coef", type number}, {"hazard_ratio", type number}, {"hr_lower_95", type number}, {"hr_upper_95", type number}, {"p_value", type number}, {"business_impact", type text}})
+				in
+				    #"Changed Type"
+

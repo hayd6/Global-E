@@ -204,6 +204,8 @@ def export_star_schema():
 
     dim_cart_df = pd.DataFrame({
         "customer_id": full_pit_df["customer_id"],
+        "total_sessions": full_pit_df["total_sessions"],
+        "total_pages_viewed": full_pit_df["total_pages_viewed"],
         "total_cart_additions": full_pit_df["total_cart_additions"],
         "cart_to_page_ratio": np.round(full_pit_df["cart_to_page_ratio"], 4),
         "cart_abandonment_severity": full_pit_df["cart_abandonment_severity"],
@@ -211,6 +213,7 @@ def export_star_schema():
         "hesitation_index": np.round(full_pit_df["hesitation_index"], 2),
         "days_since_last_session": full_pit_df["days_since_last_session"],
         "bounce_rate": np.round(full_pit_df["bounce_rate"], 4),
+        "pct_overnight_shipping": np.round(full_pit_df["pct_overnight_shipping"], 4),
         "abandonment_risk_level": full_pit_df["cart_abandonment_severity"].apply(get_risk_level)
     })
     dim_cart_csv = os.path.join(powerbi_dir, "dim_cart_behavior.csv")

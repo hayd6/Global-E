@@ -1,0 +1,63 @@
+table tbl_ch5_business_action_matrix
+	lineageTag: 959296ce-c4d6-4035-8766-1767d1d17991
+
+	column strategy_id
+		dataType: string
+		lineageTag: 5c616484-dde0-4bc2-a852-c461f61c7cc2
+		sourceColumn: strategy_id
+
+	column strategy_name
+		dataType: string
+		lineageTag: 05277bbc-83ba-4a73-b14a-d71ea25be50a
+		sourceColumn: strategy_name
+
+	column target_segment
+		dataType: string
+		lineageTag: d707a658-f665-4304-9f09-3f36c88b2495
+		sourceColumn: target_segment
+
+	column behavioral_barrier_addressed
+		dataType: string
+		lineageTag: 04756a7f-0f5c-418e-9500-883535df91ea
+		sourceColumn: behavioral_barrier_addressed
+
+	column intervention_action
+		dataType: string
+		lineageTag: f49ceed5-b4db-4d14-8987-7a4740a969c2
+		sourceColumn: intervention_action
+
+	column channel
+		dataType: string
+		lineageTag: b590c856-ef04-4d7c-abd7-3cc584e3a4f8
+		sourceColumn: channel
+
+	column optimal_threshold
+		dataType: string
+		lineageTag: eca26749-1814-4207-8424-4844e4c200fa
+		sourceColumn: optimal_threshold
+
+	column potential_risks
+		dataType: string
+		lineageTag: 500ffe7d-1cef-4634-8823-7565b3f70873
+		sourceColumn: potential_risks
+
+	column mitigation_plan
+		dataType: string
+		lineageTag: d1f1530d-6d67-4009-9300-d2b034f2b7b9
+		sourceColumn: mitigation_plan
+
+	column target_kpi
+		dataType: string
+		lineageTag: 7d2f3888-d30e-4edc-b945-9ee28c112ce3
+		sourceColumn: target_kpi
+
+	partition tbl_ch5_business_action_matrix = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\tables\tbl_ch5_business_action_matrix.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"strategy_id", type text}, {"strategy_name", type text}, {"target_segment", type text}, {"behavioral_barrier_addressed", type text}, {"intervention_action", type text}, {"channel", type text}, {"optimal_threshold", type text}, {"potential_risks", type text}, {"mitigation_plan", type text}, {"target_kpi", type text}})
+				in
+				    #"Changed Type"
+

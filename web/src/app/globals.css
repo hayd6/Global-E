@@ -1,29 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
+  /* Liquid Glass standard matching web1.md */
   .liquid-glass {
+    background: rgba(0, 0, 0, 0.45);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.12) 20%,
+      rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+      rgba(255,255,255,0.12) 80%, rgba(255,255,255,0.35) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Khung đọc chính kính mờ cao cấp chừa 4 viền để thấy video chuyển động đằng sau */
+  .main-reading-frame {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(14px) saturate(210%);
+    -webkit-backdrop-filter: blur(14px) saturate(210%);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.85);
+  }
+
+  /* Khung thẻ con bên trong khung đọc với hiệu ứng nảy đàn hồi (spring bounce) */
+  .sub-reading-card {
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.25s ease,
+                box-shadow 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.25s ease;
+  }
+  .sub-reading-card:hover {
+    transform: translateY(-4px) scale(1.008);
     background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 18px 36px -6px rgba(15, 23, 42, 0.12), 0 0 24px rgba(13, 148, 136, 0.18);
   }
-  .liquid-glass-sidebar {
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border-right: 1px solid rgba(226, 232, 240, 0.85);
+
+  /* Hiệu ứng biểu tượng nảy xoay sinh động */
+  .spring-icon {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .liquid-card-hover {
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  .sub-reading-card:hover .spring-icon,
+  .spring-icon:hover {
+    transform: scale(1.22) rotate(8deg);
   }
-  .liquid-card-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08), inset 0 1px 2px rgba(255, 255, 255, 1);
-    border-color: rgba(13, 148, 136, 0.4);
+
+  /* Nút bấm hoặc badge nảy khi tương tác */
+  .bounce-btn {
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
   }
+  .bounce-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
+  .bounce-btn:active {
+    transform: scale(0.96);
+  }
+
   .liquid-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -50,8 +107,27 @@
 }
 
 body {
-  background-color: #F8FAFC;
+  background-color: #000000;
   color: #0F172A;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom sleek scrollbar for reading content */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
 }

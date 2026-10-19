@@ -1,0 +1,58 @@
+table tbl_ch5_decile_lift_profit
+	lineageTag: 11b554fb-cda4-4e75-bacb-d7166e130c8c
+
+	column decile
+		dataType: int64
+		lineageTag: c97d7307-9f8e-4b85-964d-dbdb8335ae97
+		sourceColumn: decile
+
+	column customer_count
+		dataType: int64
+		lineageTag: 8396b5a4-b995-4a69-a58d-9e4d4d260faa
+		sourceColumn: customer_count
+
+	column actual_purchases
+		dataType: int64
+		lineageTag: d9aac5b3-aa69-4f81-a891-0fce02be307c
+		sourceColumn: actual_purchases
+
+	column response_rate_pct
+		dataType: double
+		lineageTag: 01c1764c-fd1c-47ca-8bb2-36b6d4504c28
+		sourceColumn: response_rate_pct
+
+	column lift_at_k
+		dataType: double
+		lineageTag: 52d6d3c1-d818-4a6d-8e3b-9ba106af6703
+		sourceColumn: lift_at_k
+
+	column cumulative_recall_pct
+		dataType: double
+		lineageTag: 3e5032fc-d2e1-4836-9ccb-4ed4556074a2
+		sourceColumn: cumulative_recall_pct
+
+	column precision_at_k_pct
+		dataType: double
+		lineageTag: 188565db-3d5d-4918-bffc-36e60c1b3d47
+		sourceColumn: precision_at_k_pct
+
+	column decile_net_profit_usd
+		dataType: double
+		lineageTag: f8e1ca61-aac4-4daa-ba81-812796f07b40
+		sourceColumn: decile_net_profit_usd
+
+	column cumulative_net_profit_usd
+		dataType: double
+		lineageTag: 28a09db5-7bc4-4e55-9c02-a4a6a6bc048d
+		sourceColumn: cumulative_net_profit_usd
+
+	partition tbl_ch5_decile_lift_profit = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\tables\tbl_ch5_decile_lift_profit.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"decile", Int64.Type}, {"customer_count", Int64.Type}, {"actual_purchases", Int64.Type}, {"response_rate_pct", type number}, {"lift_at_k", type number}, {"cumulative_recall_pct", type number}, {"precision_at_k_pct", type number}, {"decile_net_profit_usd", type number}, {"cumulative_net_profit_usd", type number}})
+				in
+				    #"Changed Type"
+

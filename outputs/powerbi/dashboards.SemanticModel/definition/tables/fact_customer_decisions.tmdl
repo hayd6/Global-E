@@ -1,0 +1,275 @@
+table fact_customer_decisions
+	lineageTag: 7578fe50-25e7-4f8f-bd6a-000a99295d20
+
+	/// Tổng quy mô khách hàng trên toàn sàn
+	measure 'Total Customers' = COUNTROWS('dim_customers')
+		formatString: #,##0
+		displayFolder: 1. Executive Summary
+		lineageTag: a1310c19-fd66-4b1d-843d-cb37dc15ffa5
+
+	/// Tỷ lệ chuyển đổi tự nhiên trên tập Train
+	measure 'Baseline Conversion Rate' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS('fact_customer_decisions'), 'fact_customer_decisions'[target_actual] = 1),
+			    CALCULATE(COUNTROWS('fact_customer_decisions'), NOT(ISBLANK('fact_customer_decisions'[target_actual])))
+			)
+		formatString: 0.00%
+		displayFolder: 1. Executive Summary
+		lineageTag: ff683cb9-ba73-4925-924c-b2a8f5a9a1a7
+
+	/// Tỷ lệ từ bỏ giỏ hàng trung bình
+	measure 'Avg Abandonment Rate' = AVERAGEX('dim_cart_behavior', 'dim_cart_behavior'[cart_abandonment_severity] / ('dim_cart_behavior'[total_cart_additions] + 1))
+		formatString: 0.00%
+		displayFolder: 1. Executive Summary
+		lineageTag: fbfc3a81-0203-491b-88d3-757bf7f3f300
+
+	/// Lợi nhuận ròng cực đại có thể thu hồi trên tập Holdout
+	measure 'Max Holdout Profit' =
+			CALCULATE(
+			    MAX('dim_threshold_simulation'[expected_net_profit_usd])
+			)
+		formatString: $#,##0
+		displayFolder: 1. Executive Summary
+		lineageTag: 12728377-0768-4505-bcb8-5d5dbbdf74c8
+
+	/// Tỷ trọng nhóm Cart Hesitators trong toàn bộ khách hàng
+	measure 'Hesitators Population Share' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS('fact_customer_decisions'), 'fact_customer_decisions'[gmm_cluster_id] = 2),
+			    COUNTROWS('fact_customer_decisions')
+			)
+		formatString: 0.00%
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: 417570c7-b5e3-408b-9314-2950eb4daa5d
+
+	/// Chỉ số đắn đo giỏ hàng trung bình (giây/mặt hàng)
+	measure 'Avg Hesitation Index' = AVERAGE('dim_cart_behavior'[hesitation_index])
+		formatString: #,##0.0
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: b2a5cb77-9a50-4b6d-ad41-12c31cbcf8e2
+
+	/// Tỷ lệ phiên lựa chọn cước giao hàng hỏa tốc Overnight
+	measure 'Overnight Ratio' = AVERAGE('dim_cart_behavior'[pct_overnight_shipping])
+		formatString: 0.00%
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: 57ee7c3f-e69c-4a6a-87dc-bf79583db753
+
+	/// Mức độ nghiêm trọng từ bỏ giỏ hàng bình quân của Cụm 2
+	measure 'Cluster 2 Abandonment' =
+			CALCULATE(
+			    MAX('tbl_ch3_gmm_cluster_profiles'[mean_abandonment_severity]),
+			    'tbl_ch3_gmm_cluster_profiles'[cluster_id] = 2
+			)
+		formatString: #,##0.0
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: 7b01e6f5-f871-4224-a05a-4787ef4de52f
+
+	/// Thời điểm vàng can thiệp cứu giỏ hàng theo hàm phân rã Kaplan-Meier
+	measure 'Critical Decay Window' = "7 Ngày"
+		displayFolder: 3. Survival & Uplift
+		lineageTag: 0e6ef09d-a55d-43d0-84fb-f69b46ab17be
+
+	/// Tỷ trọng nhóm nhạy cảm ưu đãi Persuadables
+	measure 'Persuadables Pct' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS('fact_customer_decisions'), 'fact_customer_decisions'[uplift_segment] = "Persuadables"),
+			    COUNTROWS('fact_customer_decisions')
+			)
+		formatString: 0.00%
+		displayFolder: 3. Survival & Uplift
+		lineageTag: aa16345a-59e2-4d80-b3ba-e8969af97a09
+
+	/// Ngân sách bảo toàn được khi không cấp voucher cho nhóm Sure Things
+	measure 'Saved Budget' =
+			CALCULATE(
+			    COUNTROWS('fact_customer_decisions'),
+			    'fact_customer_decisions'[uplift_segment] = "Sure Things"
+			) * 5.0
+		formatString: $#,##0
+		displayFolder: 3. Survival & Uplift
+		lineageTag: 3007dfda-bcc4-410b-9dfa-112b6077e69c
+
+	/// Tỷ lệ chuyển đổi thuần gia tăng của nhóm Persuadables
+	measure 'Avg Uplift Tau' =
+			CALCULATE(
+			    AVERAGE('fact_customer_decisions'[uplift_score]),
+			    'fact_customer_decisions'[uplift_segment] = "Persuadables"
+			)
+		formatString: +0.00%
+		displayFolder: 3. Survival & Uplift
+		lineageTag: 6f01b52d-163c-418c-9451-8080ec0a45bf
+
+	/// Ngưỡng phân loại xác suất tối ưu hóa kinh tế cực đại tau*
+	measure 'Optimal Threshold Tau' = 0.07
+		formatString: 0.00
+		displayFolder: 4. Financial Optimization
+		lineageTag: df589479-fcec-4a1d-ab4b-84807dedea41
+
+	/// Lợi nhuận ròng cực đại đạt được trên tập Holdout
+	measure 'Max Net Profit USD' =
+			CALCULATE(
+			    MAX('dim_threshold_simulation'[expected_net_profit_usd])
+			)
+		formatString: $#,##0
+		displayFolder: 4. Financial Optimization
+		lineageTag: eff4fc89-ad04-4c7a-840a-5a64d17eb500
+
+	/// Chênh lệch lợi nhuận vượt trội so với ngưỡng mặc định tau=0.50
+	measure 'Profit Delta vs Default' = ```
+			[Max Net Profit USD] - 
+			CALCULATE(
+			    SUM('dim_threshold_simulation'[expected_net_profit_usd]),
+			    'dim_threshold_simulation'[threshold] = 0.50
+			)
+			```
+		formatString: $#,##0
+		displayFolder: 4. Financial Optimization
+		lineageTag: 7740dbfb-d969-495c-abd7-5c0ed7f2c162
+
+	/// Hệ số nâng chuyển đổi của Decile 1
+	measure 'Decile 1 Lift' = 1.61
+		formatString: 0.00"x"
+		displayFolder: 4. Financial Optimization
+		lineageTag: 9d7dcebd-94df-4f74-9a6c-ecc72ab0c7fd
+
+	/// Banner tiêu đề Trang 1
+	measure 'Banner Page 1' = "TỔNG QUAN ĐIỀU HÀNH & ĐỘNG HỌC PHỄU CHUYỂN ĐỔI"
+		displayFolder: 0. Navigation & Banners
+		lineageTag: b1111111-1111-1111-1111-111111111111
+
+	/// Banner tiêu đề Trang 2
+	measure 'Banner Page 2' = "RÀO CẢN HÀNH VI VI MÔ & PHÂN CỤM XÁC SUẤT GMM (k*=5)"
+		displayFolder: 0. Navigation & Banners
+		lineageTag: b2222222-2222-2222-2222-222222222222
+
+	/// Banner tiêu đề Trang 3
+	measure 'Banner Page 3' = "ĐỘNG HỌC SỐNG CÒN KAPLAN-MEIER & SUY LUẬN NHÂN QUẢ UPLIFT CATE"
+		displayFolder: 0. Navigation & Banners
+		lineageTag: b3333333-3333-3333-3333-333333333333
+
+	/// Banner tiêu đề Trang 4
+	measure 'Banner Page 4' = "TỐI ƯU HÓA HÀM LỢI NHUẬN RÒNG WHAT-IF & MA TRẬN HÀNH ĐỘNG"
+		displayFolder: 0. Navigation & Banners
+		lineageTag: b4444444-4444-4444-4444-444444444444
+
+	/// Mức tiết kiệm chi phí tiếp cận CAC
+	measure 'CAC Savings Pct' = "-60.0%"
+		displayFolder: 1. Executive Summary
+		lineageTag: c1111111-2222-3333-4444-555555555555
+
+	measure 'Funnel Users Count' = SUM('dim_funnel_stages'[stage_users_count])
+		formatString: #,##0
+		displayFolder: 1. Executive Summary
+		lineageTag: ac2e6c5f-4b3b-446a-a12e-b36f6d237220
+
+	measure 'Avg Cart Abandonment Severity' = AVERAGE('dim_cart_behavior'[cart_abandonment_severity])
+		formatString: #,##0.0
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: e3f96b50-ee49-4f96-a8d8-3ec23be83828
+
+	measure 'Survival Prob 7D' = AVERAGE('tbl_ch4_survival_summary'[survival_prob_7d])
+		formatString: 0.0%
+		displayFolder: 3. Survival & Uplift
+		lineageTag: 5b4ab6b0-de3e-4d8e-81a2-07f9767d827e
+
+	measure 'Expected Net Profit' = SUM('dim_threshold_simulation'[expected_net_profit_usd])
+		formatString: $#,##0
+		displayFolder: 4. Financial Optimization
+		lineageTag: 92dd770f-c536-4f5d-9ea9-17a1a64a4a9e
+
+	measure 'Decile Lift Score' = AVERAGE('tbl_ch5_decile_lift_profit'[lift_at_k])
+		formatString: 0.00"x"
+		displayFolder: 4. Financial Optimization
+		lineageTag: 0ec53dbc-81e7-48b4-98b0-54f0d4ea5b28
+
+	measure 'Avg AOV USD' = AVERAGE('fact_customer_decisions'[clv_predicted_usd])
+		formatString: $#,##0.00
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: f2222222-aaaa-bbbb-cccc-111111111111
+
+	measure 'Survival Prob 30D' = AVERAGE('tbl_ch4_survival_summary'[survival_prob_30d])
+		formatString: 0.0%
+		displayFolder: 3. Survival & Uplift
+		lineageTag: f3333333-aaaa-bbbb-cccc-222222222222
+
+	measure 'Hazard Ratio Score' = AVERAGE('tbl_ch4_coxph_hazard_ratios'[hazard_ratio])
+		formatString: 0.00
+		displayFolder: 3. Survival & Uplift
+		lineageTag: f4444444-aaaa-bbbb-cccc-333333333333
+
+	measure 'Decile Net Profit' = SUM('tbl_ch5_decile_lift_profit'[net_profit_usd])
+		formatString: $#,##0
+		displayFolder: 4. Financial Optimization
+		lineageTag: f5555555-aaaa-bbbb-cccc-444444444444
+
+	column customer_id
+		dataType: int64
+		lineageTag: 3fe794c5-c801-4319-8a26-23a20fcf4c55
+		sourceColumn: customer_id
+
+	column target_actual
+		dataType: int64
+		lineageTag: 4a38a081-1896-4812-a459-5d94df20e18d
+		sourceColumn: target_actual
+
+	column predicted_prob_calibrated
+		dataType: double
+		lineageTag: b5880fee-4e05-46c1-a410-70e6eed3bbe9
+		sourceColumn: predicted_prob_calibrated
+
+	column decision_optimal_tau
+		dataType: int64
+		lineageTag: 08cb0ea2-6a08-47aa-9f2c-9a5d6e68aabb
+		sourceColumn: decision_optimal_tau
+
+	column uplift_score
+		dataType: double
+		lineageTag: 368a0024-f944-445a-93e6-3f5dd6adbd93
+		sourceColumn: uplift_score
+
+	column uplift_segment
+		dataType: string
+		lineageTag: a3dea127-fb35-41cc-bfcf-785b5c8d9387
+		sourceColumn: uplift_segment
+
+	column gmm_cluster_id
+		dataType: int64
+		lineageTag: f702a5cc-555f-467c-87f2-b57efaec3c2d
+		sourceColumn: gmm_cluster_id
+
+	column clv_predicted_usd
+		dataType: double
+		lineageTag: d3f123f0-a540-47dd-8a95-c84d83608fff
+		sourceColumn: clv_predicted_usd
+
+	column expected_margin_usd
+		dataType: double
+		lineageTag: 7ea46e2e-a5c5-4718-a398-82bc00032a35
+		sourceColumn: expected_margin_usd
+
+	column expected_net_profit_usd
+		dataType: double
+		lineageTag: 002e076c-faf0-4873-bf29-b213472c186a
+		sourceColumn: expected_net_profit_usd
+
+	column decile_rank
+		dataType: int64
+		lineageTag: 10af636e-a35c-4403-82ef-5ab2cc490813
+		sourceColumn: decile_rank
+
+	/// Tên định danh chân dung 5 cụm hành vi GMM
+	column gmm_cluster_name = SWITCH('fact_customer_decisions'[gmm_cluster_id], 1, "Cụm 1: High-Value Champions", 2, "Cụm 2: Cart Hesitators", 3, "Cụm 3: Discount Seekers", 4, "Cụm 4: Dormant At-Risk", 5, "Cụm 5: Passive Browsers", "Không xác định")
+		dataType: string
+		lineageTag: c07eae01-248a-4ceb-a0e8-8b5d6ecbbc68
+		sortByColumn: gmm_cluster_id
+
+	partition fact_customer_decisions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\powerbi\fact_customer_decisions.csv"),[Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", Int64.Type}, {"target_actual", Int64.Type}, {"predicted_prob_calibrated", type number}, {"decision_optimal_tau", Int64.Type}, {"uplift_score", type number}, {"uplift_segment", type text}, {"gmm_cluster_id", Int64.Type}, {"clv_predicted_usd", type number}, {"expected_margin_usd", type number}, {"expected_net_profit_usd", type number}, {"decile_rank", Int64.Type}})
+				in
+				    #"Changed Type"
+

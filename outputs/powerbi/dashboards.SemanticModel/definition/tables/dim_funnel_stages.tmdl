@@ -1,0 +1,39 @@
+/// Bảng giai đoạn phễu chuyển đổi toàn diện của sàn thương mại điện tử
+table dim_funnel_stages
+	lineageTag: 4c4a2d55-ac7e-4124-a0cf-c1409a9ab973
+
+	column stage_order
+		dataType: int64
+		lineageTag: 777501db-ce39-4b61-9c26-8276515e898d
+		isNameInferred
+		sourceColumn: [stage_order]
+
+	column stage_name
+		dataType: string
+		lineageTag: e47cd27a-1d23-47df-8f0a-0a9ba4e4d487
+		isNameInferred
+		sourceColumn: [stage_name]
+		sortByColumn: stage_order
+
+	column stage_users_count
+		dataType: int64
+		lineageTag: e663a042-f886-4ecf-800c-b76f638beff2
+		isNameInferred
+		sourceColumn: [stage_users_count]
+
+	column conversion_rate_pct
+		dataType: double
+		lineageTag: d4940d68-6cde-4846-a838-5fc35d8a4833
+		isNameInferred
+		sourceColumn: [conversion_rate_pct]
+
+	column drop_off_rate_pct
+		dataType: double
+		lineageTag: 35a4907c-0941-412f-883e-c6c1ecb51b03
+		isNameInferred
+		sourceColumn: [drop_off_rate_pct]
+
+	partition dim_funnel_stages = calculated
+		mode: import
+		source = DATATABLE("stage_order", INTEGER, "stage_name", STRING, "stage_users_count", INTEGER, "conversion_rate_pct", DOUBLE, "drop_off_rate_pct", DOUBLE, { { 1, "1. Phiên truy cập", 1002701, 100.0, 0.0 }, { 2, "2. Xem sản phẩm", 824300, 82.2, 17.8 }, { 3, "3. Thêm giỏ hàng", 684200, 68.2, 14.0 }, { 4, "4. Mua thành công", 32486, 20.3, 79.7 } })
+

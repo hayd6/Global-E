@@ -1,0 +1,73 @@
+table dim_cart_behavior
+	lineageTag: 19d9c68a-7fa9-479d-9a16-4e899e78b8f0
+
+	column customer_id
+		dataType: int64
+		lineageTag: ac64ac58-334c-4356-9716-e4d2c3463661
+		sourceColumn: customer_id
+
+	column total_sessions
+		dataType: int64
+		lineageTag: 4b402392-ce3b-4cfb-b098-54ee78e43dc8
+		sourceColumn: total_sessions
+
+	column total_pages_viewed
+		dataType: int64
+		lineageTag: 4fd4bdf6-cc4b-42d2-9b18-f11732c9a2f9
+		sourceColumn: total_pages_viewed
+
+	column total_cart_additions
+		dataType: int64
+		lineageTag: 0a162fbf-0d27-431e-9c9a-626e8727a654
+		sourceColumn: total_cart_additions
+
+	column cart_to_page_ratio
+		dataType: double
+		lineageTag: dedd30fd-1157-4ece-bb3d-7a778ba91afe
+		sourceColumn: cart_to_page_ratio
+
+	column cart_abandonment_severity
+		dataType: int64
+		lineageTag: 7072571b-ded9-4d9d-9c1e-3009d1be8ee7
+		sourceColumn: cart_abandonment_severity
+
+	column cart_velocity
+		dataType: double
+		lineageTag: cc31d16f-3b65-44b9-92ca-ddfe72e60453
+		sourceColumn: cart_velocity
+
+	column hesitation_index
+		dataType: double
+		lineageTag: 011a29d1-35a4-4d9d-8f4c-7c2fda3ab4e3
+		sourceColumn: hesitation_index
+
+	column days_since_last_session
+		dataType: int64
+		lineageTag: bb575e79-4d52-4c7c-91c8-b1e5efca427e
+		sourceColumn: days_since_last_session
+
+	column bounce_rate
+		dataType: double
+		lineageTag: bf22343e-aa58-43a5-a663-56edae863759
+		sourceColumn: bounce_rate
+
+	column pct_overnight_shipping
+		dataType: double
+		lineageTag: af2c58cf-cc2e-446a-917c-82f6c9d52298
+		sourceColumn: pct_overnight_shipping
+
+	column abandonment_risk_level
+		dataType: string
+		lineageTag: fba3b5e2-86c7-45c6-a0f4-83631d4909f1
+		sourceColumn: abandonment_risk_level
+
+	partition dim_cart_behavior = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\powerbi\dim_cart_behavior.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", Int64.Type}, {"total_sessions", Int64.Type}, {"total_pages_viewed", Int64.Type}, {"total_cart_additions", Int64.Type}, {"cart_to_page_ratio", type number}, {"cart_abandonment_severity", Int64.Type}, {"cart_velocity", type number}, {"hesitation_index", type number}, {"days_since_last_session", Int64.Type}, {"bounce_rate", type number}, {"pct_overnight_shipping", type number}, {"abandonment_risk_level", type text}})
+				in
+				    #"Changed Type"
+

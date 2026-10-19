@@ -1,0 +1,82 @@
+table tbl_ch3_gmm_cluster_profiles
+	lineageTag: e8a72b11-54c3-4d29-9e81-7f8931a7201b
+
+	measure 'GMM AOV' = AVERAGE('tbl_ch3_gmm_cluster_profiles'[mean_monetary])
+		formatString: $#,##0.00
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: c3111111-aaaa-bbbb-cccc-111111111111
+
+	measure 'GMM Cart Abandonment' = AVERAGE('tbl_ch3_gmm_cluster_profiles'[mean_abandonment_severity])
+		formatString: #,##0.0
+		displayFolder: 2. Cart Friction & GMM
+		lineageTag: c3222222-aaaa-bbbb-cccc-222222222222
+
+	column cluster_id
+		dataType: int64
+		lineageTag: 71b302c4-3677-4a11-8209-fa98234db021
+		sourceColumn: cluster_id
+
+	column persona_name
+		dataType: string
+		lineageTag: 247192bc-9b67-46e3-855c-cf68a5c37894
+		sourceColumn: persona_name
+		sortByColumn: cluster_id
+
+	column customer_count
+		dataType: int64
+		formatString: #,##0
+		lineageTag: a367d912-38ef-4c66-8877-e683ad681920
+		sourceColumn: customer_count
+
+	column pct_population
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5b678234-90aa-4399-b1d5-bc65471a9382
+		sourceColumn: pct_population
+
+	column mean_recency
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: 489c7621-39dd-4876-8832-bc1029384756
+		sourceColumn: mean_recency
+
+	column mean_frequency
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: f8392104-5832-4720-9988-cb7382910472
+		sourceColumn: mean_frequency
+
+	column mean_monetary
+		dataType: double
+		formatString: $#,##0.00
+		lineageTag: 92837461-2839-4920-a837-dc8392019482
+		sourceColumn: mean_monetary
+
+	column mean_cart_additions
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: 38291047-4829-4720-b839-ef8392018473
+		sourceColumn: mean_cart_additions
+
+	column mean_abandonment_severity
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: 83920184-4829-4720-c839-ab8392018474
+		sourceColumn: mean_abandonment_severity
+
+	column conversion_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 29384756-3829-4720-d839-fc8392018475
+		sourceColumn: conversion_rate
+
+	partition tbl_ch3_gmm_cluster_profiles = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\tables\tbl_ch3_gmm_cluster_profiles.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cluster_id", Int64.Type}, {"persona_name", type text}, {"customer_count", Int64.Type}, {"pct_population", type number}, {"mean_recency", type number}, {"mean_frequency", type number}, {"mean_monetary", type number}, {"mean_cart_additions", type number}, {"mean_abandonment_severity", type number}, {"conversion_rate", type number}})
+				in
+				    #"Changed Type"
+

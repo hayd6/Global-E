@@ -1,0 +1,10 @@
+relationship FactToCustomers
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_customer_decisions.customer_id
+	toColumn: dim_customers.customer_id
+
+relationship FactToCartBehavior
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_customer_decisions.customer_id
+	toColumn: dim_cart_behavior.customer_id
+

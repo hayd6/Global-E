@@ -1,0 +1,59 @@
+table tbl_ch4_uplift_segments_summary
+	lineageTag: d9120349-4829-4720-a839-bc8291039485
+
+	column uplift_segment
+		dataType: string
+		lineageTag: a8291039-4829-4720-b839-cd8291039486
+		sourceColumn: uplift_segment
+
+	column customer_count
+		dataType: int64
+		formatString: #,##0
+		lineageTag: b8291039-3829-4720-c839-de8291039487
+		sourceColumn: customer_count
+
+	column pct_population
+		dataType: double
+		formatString: 0.00%
+		lineageTag: c8291039-2839-4720-d839-ef8291039488
+		sourceColumn: pct_population
+
+	column mean_uplift_score
+		dataType: double
+		formatString: +0.00%
+		lineageTag: d8291039-1839-4720-e839-fe8291039489
+		sourceColumn: mean_uplift_score
+
+	column treatment_conversion_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: e8291039-0839-4720-f839-af8291039490
+		sourceColumn: treatment_conversion_rate
+
+	column control_conversion_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: f8291039-9839-4720-a839-bf8291039491
+		sourceColumn: control_conversion_rate
+
+	column net_incremental_orders
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 08291039-8839-4720-b839-cf8291039492
+		sourceColumn: net_incremental_orders
+
+	column business_recommendation
+		dataType: string
+		lineageTag: 18291039-7839-4720-c839-df8291039493
+		sourceColumn: business_recommendation
+
+	partition tbl_ch4_uplift_segments_summary = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\HuyD\Đại Học\BigData\Global-E\outputs\tables\tbl_ch4_uplift_segments_summary.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"uplift_segment", type text}, {"customer_count", Int64.Type}, {"pct_population", type number}, {"mean_uplift_score", type number}, {"treatment_conversion_rate", type number}, {"control_conversion_rate", type number}, {"net_incremental_orders", Int64.Type}, {"business_recommendation", type text}})
+				in
+				    #"Changed Type"
+
