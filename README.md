@@ -10,7 +10,7 @@
 > **Môn học:** Ứng dụng phân tích dữ liệu lớn trong kinh doanh (Big Data)  
 > **Mã lớp học phần:** `ABDA433708_02`  
 > **Đơn vị:** Khoa Kinh Tế – Trường Đại học Công nghệ Kỹ thuật TP. Hồ Chí Minh  
-> **Giảng viên hướng dẫn:** ThS. Nguyễn Phan Anh Huy  
+> **Giảng viên hướng dẫn:** Nguyễn Phan Anh Huy  
 > **Nhóm thực hiện:** Nhóm 9  
 > **File báo cáo Word chính thức:** [`ABDA433708_02_Nhom9_CuoiKi.docx`](./ABDA433708_02_Nhom9_CuoiKi.docx)  
 > **Cổng thông tin ra quyết định trực tuyến (Live Portal):** [https://hayd6.github.io/Global-E/](https://hayd6.github.io/Global-E/)
@@ -75,14 +75,14 @@ global-ecommerce-decision-intelligence/
 1. **Nguồn dữ liệu:** Cuộc thi / Bộ dữ liệu trên Kaggle:  
    👉 **[Global E-Commerce Customer Purchase Prediction Dataset](https://www.kaggle.com/competitions/global-e-commerce-customer-purchase-prediction/data)**
 2. Tải về và giải nén toàn bộ **8 file CSV** đặt trực tiếp vào thư mục `data/raw/`:
-   * `customers.csv` (Hồ sơ khách hàng)
-   * `sessions.csv` (Lịch sử phiên truy cập)
-   * `transactions.csv` (Lịch sử giao dịch đơn hàng)
-   * `marketing_campaigns.csv` (Chiến dịch tiếp thị)
-   * `geo_data.csv` (Dữ liệu địa lý vùng miền)
-   * `train.csv` (Tập train gốc)
-   * `test.csv` (Tập test gốc)
-   * `sample_submission.csv` (File mẫu nộp bài)
+   - `customers.csv` (Hồ sơ khách hàng)
+   - `sessions.csv` (Lịch sử phiên truy cập)
+   - `transactions.csv` (Lịch sử giao dịch đơn hàng)
+   - `marketing_campaigns.csv` (Chiến dịch tiếp thị)
+   - `geo_data.csv` (Dữ liệu địa lý vùng miền)
+   - `train.csv` (Tập train gốc)
+   - `test.csv` (Tập test gốc)
+   - `sample_submission.csv` (File mẫu nộp bài)
 
 ---
 
@@ -91,15 +91,18 @@ global-ecommerce-decision-intelligence/
 Quy trình dưới đây áp dụng như nhau cho cả trường hợp **Clone từ GitHub** hoặc **Giải nén từ file nộp `.zip`**:
 
 ### Bước 1: Mở Terminal tại thư mục gốc của dự án
-* Nếu sử dụng Git:
+
+- Nếu sử dụng Git:
   ```bash
   git clone https://github.com/hayd6/Global-E.git
   cd Global-E
   ```
-* Nếu giải nén từ file `.zip`: Mở PowerShell / Command Prompt tại thư mục vừa giải nén.
+- Nếu giải nén từ file `.zip`: Mở PowerShell / Command Prompt tại thư mục vừa giải nén.
 
 ### Bước 2: Khởi tạo môi trường ảo và cài đặt thư viện
+
 Khuyến nghị sử dụng **Python 3.10+**:
+
 ```bash
 # Tạo môi trường ảo (khuyến nghị)
 python -m venv venv
@@ -115,16 +118,20 @@ pip install -r requirements.txt
 ```
 
 ### Bước 3: Chạy kiểm thử tự động tính toàn vẹn Point-in-Time (PIT Integrity Test)
+
 Xác thực nguyên tắc nghiêm ngặt: $100\%$ không rò rỉ dữ liệu qua mốc chốt quyết định $t_0 = \text{2024-06-01}$:
+
 ```bash
 pytest tests/test_pit_integrity.py -v
 ```
 
 ### Bước 4: Thực thi trọn vẹn toàn bộ Pipeline từ A đến Z (1-Click Run)
+
 ```bash
 python run_pipeline.py
 ```
-*Script tự động điều phối tuần tự 18 công đoạn qua 5 giai đoạn: Data Healing bằng DuckDB $\rightarrow$ Feature Store PIT $\rightarrow$ Kiểm định giả thuyết & GMM $\rightarrow$ Optuna Tuning & Calibration $\rightarrow$ Kaplan-Meier, CoxPH & Uplift CATE $\rightarrow$ Tối ưu hóa lợi nhuận What-If $\rightarrow$ Xuất bản Star-Schema Power BI.*
+
+_Script tự động điều phối tuần tự 18 công đoạn qua 5 giai đoạn: Data Healing bằng DuckDB $\rightarrow$ Feature Store PIT $\rightarrow$ Kiểm định giả thuyết & GMM $\rightarrow$ Optuna Tuning & Calibration $\rightarrow$ Kaplan-Meier, CoxPH & Uplift CATE $\rightarrow$ Tối ưu hóa lợi nhuận What-If $\rightarrow$ Xuất bản Star-Schema Power BI._
 
 ---
 
@@ -133,9 +140,10 @@ python run_pipeline.py
 Dự án cung cấp 4 kênh nghiệm thu trực quan phục vụ người dùng nghiệp vụ và ban điều hành:
 
 ### 4.1. Cổng thông tin điều hành trực tuyến (Web Portal - Khuyến nghị)
-* **Truy cập trực tiếp không cần cài đặt:**  
+
+- **Truy cập trực tiếp không cần cài đặt:**  
   👉 **[https://hayd6.github.io/Global-E/](https://hayd6.github.io/Global-E/)**
-* Hoặc chạy cục bộ bằng Node.js:
+- Hoặc chạy cục bộ bằng Node.js:
   ```bash
   cd web
   npm install
@@ -144,27 +152,33 @@ Dự án cung cấp 4 kênh nghiệm thu trực quan phục vụ người dùng 
   Truy cập tại: `http://localhost:3000`
 
 ### 4.2. Báo cáo quản trị thông minh Microsoft Power BI (4 trang chuyên sâu)
-* Mở trực tiếp bằng phần mềm **Microsoft Power BI Desktop**:
-  * File dự án mã nguồn mở: [`outputs/powerbi/dashboards.pbip`](./outputs/powerbi/dashboards.pbip)
-  * Hoặc file đóng gói: [`outputs/powerbi/dashboards.pbix`](./outputs/powerbi/dashboards.pbix)
-* **Cấu trúc 4 trang dashboard:**
-  1. *Trang 1:* Tổng quan điều hành & Động học phễu chuyển đổi (Baymard vs Global-E, CVR theo độ tuổi & quốc gia).
-  2. *Trang 2:* Rào cản hành vi vi mô & Phân cụm xác suất GMM ($k^*=5$ chân dung khách hàng).
-  3. *Trang 3:* Động học sống còn Kaplan-Meier & Suy luận nhân quả Uplift CATE.
-  4. *Trang 4:* Tối ưu hóa hàm lợi nhuận ròng What-If ($\tau^* = 0.07$) & Ma trận hành động kinh doanh.
+
+- Mở trực tiếp bằng phần mềm **Microsoft Power BI Desktop**:
+  - File dự án mã nguồn mở: [`outputs/powerbi/dashboards.pbip`](./outputs/powerbi/dashboards.pbip)
+  - Hoặc file đóng gói: [`outputs/powerbi/dashboards.pbix`](./outputs/powerbi/dashboards.pbix)
+- **Cấu trúc 4 trang dashboard:**
+  1. _Trang 1:_ Tổng quan điều hành & Động học phễu chuyển đổi (Baymard vs Global-E, CVR theo độ tuổi & quốc gia).
+  2. _Trang 2:_ Rào cản hành vi vi mô & Phân cụm xác suất GMM ($k^*=5$ chân dung khách hàng).
+  3. _Trang 3:_ Động học sống còn Kaplan-Meier & Suy luận nhân quả Uplift CATE.
+  4. _Trang 4:_ Tối ưu hóa hàm lợi nhuận ròng What-If ($\tau^* = 0.07$) & Ma trận hành động kinh doanh.
 
 ### 4.3. Backend API suy luận mô hình (FastAPI)
+
 Cung cấp API phục vụ dự báo xác suất chuyển đổi, giải thích SHAP và tính toán phân khúc thời gian thực:
+
 ```bash
 uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-*Tài liệu kiểm thử tương tác Swagger UI:* `http://localhost:8000/docs`
+
+_Tài liệu kiểm thử tương tác Swagger UI:_ `http://localhost:8000/docs`
 
 ### 4.4. Ứng dụng Web tương tác Streamlit
+
 ```bash
 streamlit run app/app.py
 ```
-*Truy cập tại:* `http://localhost:8501`
+
+_Truy cập tại:_ `http://localhost:8501`
 
 ---
 
@@ -172,6 +186,5 @@ streamlit run app/app.py
 
 1. **Báo cáo khoa học Word chuyên sâu:** File [`ABDA433708_02_Nhom9_CuoiKi.docx`](./ABDA433708_02_Nhom9_CuoiKi.docx) chuẩn cấu trúc học thuật, tích hợp đầy đủ cơ sở lý thuyết, công thức toán học, bảng số liệu thực nghiệm và đánh giá giá trị kinh tế.
 2. **Cổng thông tin ra quyết định số (Web Portal):** Phát hành trên GitHub Pages tại [hayd6.github.io/Global-E](https://hayd6.github.io/Global-E/) tích hợp đồ thị 3D WebGL và mô phỏng What-If thời gian thực.
-3. **Bộ Dashboard Power BI Star-Schema hoàn chỉnh:** [`outputs/powerbi/`](./outputs/powerbi/) gồm 4 bảng thứ nguyên và 1 bảng sự kiện kết nối mô hình quan hệ chuẩn 1-N.
-4. **Mô hình học máy tối ưu sẵn sàng triển khai:** `outputs/models/best_calibrated_model.pkl` (LightGBM kết hợp Platt Sigmoid Calibration, nén ECE xuống 0.0035).
-5. **Kho lưu trữ số liệu & biểu đồ khoa học:** 18 bảng số liệu tại `outputs/tables/` và 12 biểu đồ độ phân giải cao tại `outputs/figures/`.
+3. **Mô hình học máy tối ưu sẵn sàng triển khai:** `outputs/models/best_calibrated_model.pkl` (LightGBM kết hợp Platt Sigmoid Calibration, nén ECE xuống 0.0035).
+4. **Kho lưu trữ số liệu & biểu đồ khoa học:** 18 bảng số liệu tại `outputs/tables/` và 12 biểu đồ độ phân giải cao tại `outputs/figures/`.
